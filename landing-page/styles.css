@@ -115,3 +115,24 @@ a {
 .description {
     text-align: center;
 }
+
+.quote-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    padding:128px 320px;
+    gap: 16px;
+}
+
+.quote {
+    font-size: 36px;
+    font-weight: lighter;
+    font-style: italic;
+    color: #1F2937
+}
+
+.author {
+    font-size: 18px;
+    font-weight: bold;
+    align-self: flex-end;
+}
