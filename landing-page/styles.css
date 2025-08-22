@@ -1,0 +1,44 @@
+:root {
+  --primary-color: #1f2937; /* Bootstrap blue */
+  --secondary-color: #F9FAF8; /* Bootstrap gray */
+  --accent-color: #3882F6;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 20px 160px;
+}
+
+.links{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.secondary-text {
+    font-size: 18px;
+    color: #E5E7EB;
+}
+
