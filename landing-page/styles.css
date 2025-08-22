@@ -136,3 +136,34 @@ a {
     font-weight: bold;
     align-self: flex-end;
 }
+
+.cta-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 64px 128px;
+}
+
+.cta-container {
+    background-color: var(--accent-color);
+    box-sizing: border-box;
+    width:1000px;
+    padding: 32px 64px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#cta-header {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.secondary-button {
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: var(--accent-color);
+    border: 2px solid var(--secondary-color);
+    width: fit-content;
+    padding: 8px 16px;
+}
