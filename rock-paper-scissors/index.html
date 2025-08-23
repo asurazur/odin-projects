@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice() {
+            let choices = ['rock', 'paper', 'scissors']
+            let pick = Math.floor(Math.random() * choices.length)
+            return choices[pick]
+        }
+
+        function getHumanChoice() {
+            let choice = prompt("Choose from rock, paper, and scissors: ")
+            return choice
+        }
+
+        function playRound(humanChoice, computerChoice){
+            humanChoice = humanChoice.toLowerCase()
+            if (humanChoice === computerChoice) {
+                console.log("It's a tie!")
+                return -1
+            } else if (
+                (humanChoice === "rock" && computerChoice === "scissors") ||
+                (humanChoice === "paper" && computerChoice === "rock") ||
+                (humanChoice === "scissors" && computerChoice === "paper")
+                ) {
+                    console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+                    return 0
+                } else {
+                    console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
+                    return 1
+                }
+            }
+        function playGame() {
+            let humanScore = 0
+            let computerScore = 0
+            for(let i = 0; i < 5; i++) {
+                let computerChoice = getComputerChoice()
+                let humanChoice = getHumanChoice()
+                let result = playRound(humanChoice, computerChoice)
+                if (result === 0) {
+                    humanScore++
+                } else if (result === 1) {
+                    computerScore++
+                }
+            }
+            console.log(`Final Score: You ${humanScore} - ${computerScore} Computer`)
+        }
+        
+        playGame()
+    </script>
+</body>
+</html>
