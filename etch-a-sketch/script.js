@@ -16,9 +16,17 @@ function setDimension(dimension) {
     const squares = document.querySelectorAll('.square')
     squares.forEach((square) => {
         square.addEventListener('mouseover', () => {
-            square.classList.toggle('hovered')
+            square.style.backgroundColor = generateRandomRgbColor()
         })
     })
+}
+
+function generateRandomRgbColor() {
+  const r = Math.floor(Math.random() * 256); // Random Red value (0-255)
+  const g = Math.floor(Math.random() * 256); // Random Green value (0-255)
+  const b = Math.floor(Math.random() * 256); // Random Blue value (0-255)
+
+  return `rgb(${r}, ${g}, ${b})`;
 }
 
 const dimensionBtn = document.querySelector('#dimension-btn')
