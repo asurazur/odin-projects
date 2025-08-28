@@ -55,6 +55,10 @@ body {
     filter: brightness(125%);
 }
 
+.btn.btn:active {
+    filter: brightness(100%);
+}
+
 .btn-operand {
     background-color: #333333;
     color: white;
