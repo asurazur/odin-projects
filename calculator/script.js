@@ -22,6 +22,18 @@ document.addEventListener('click', (e) => {
     updateDisplay()
 })
 
+document.addEventListener('keyup', (e) => {
+    let key = e.key;
+    let digits = /\d/
+    let operators = ['+', '-', '*', '/', '%', '.', 'Enter']
+    if (digits.test(key) || operators.includes(key)) {
+        document.querySelector(`#${valueToID(key)}`).click()
+    } else if (key === 'Backspace' || 'Delete') {
+        operand = operand.slice(0, -1)
+        updateDisplay()
+    }
+})
+
 function getTargetProperties(target) {
     return [target.id, target.classList]
 }
@@ -52,6 +64,9 @@ function operate(id) {
         if (accumulator === '') {
             accumulator = Number(operand)
             operand = ''
+        } else if (accumulator !== '' && operand !== ''){
+            accumulator = calculate(Number(accumulator), operator, Number(operand))
+            operand = ''
         }
     }
 }
@@ -73,4 +88,43 @@ function calculate(accumulator, operator, operand) {
         return accumulator % operand
     }
 
+}
+
+function valueToID(value) {
+    switch(value) {
+        case '1':
+            return 'one'
+        case '2':
+            return 'two'
+        case '3':
+            return 'three'
+        case '4':
+            return 'four'
+        case '5':
+            return 'five'
+        case '6':
+            return 'six'
+        case '7':
+            return 'seven'
+        case '8':
+            return 'eight'
+        case '9':
+            return 'nine'
+        case '0':
+            return 'zero'
+        case '+':
+            return 'add'
+        case '-':
+            return 'minus'
+        case '*':
+            return 'multiply'
+        case '/':
+            return 'divide'
+        case '%':
+            return 'modulo'
+        case '.':
+            return 'decimal'
+        case 'Enter':
+            return 'eq'
+    }
 }
