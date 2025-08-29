@@ -16,28 +16,7 @@ document.addEventListener('click', (e) => {
         }
         operand += (e.target.textContent)
     } else if(classList.contains('btn-operator') || classList.contains('btn-other')) {
-        if (id === 'clear') {
-            accumulator = ''
-            operand = ''
-            operator = ''
-        }
-        else if (id === 'plus-minus') {
-            operand = -operand
-        }
-        else if (id === 'eq') {
-            if (accumulator === '' || operator === '' || operand === '') { 
-                return
-            }
-            accumulator = calculate(Number(accumulator), operator, Number(operand))
-            operand = ''
-        }
-        else {
-            operator = id
-            if (accumulator === '') {
-                accumulator = Number(operand)
-                operand = ''
-            }
-        }
+        operate(id)
     }
     // Update Display
     updateDisplay()
@@ -50,6 +29,31 @@ function getTargetProperties(target) {
 
 function updateDisplay() {
     document.getElementById('display').textContent = Number(operand) || Number(accumulator) || '0'
+}
+
+function operate(id) {
+    if (id === 'clear') {
+        accumulator = ''
+        operand = ''
+        operator = ''
+    }
+    else if (id === 'plus-minus') {
+        operand = -operand
+    }
+    else if (id === 'eq') {
+        if (accumulator === '' || operator === '' || operand === '') { 
+            return
+        }
+        accumulator = calculate(Number(accumulator), operator, Number(operand))
+        operand = ''
+    }
+    else {
+        operator = id
+        if (accumulator === '') {
+            accumulator = Number(operand)
+            operand = ''
+        }
+    }
 }
 
 function calculate(accumulator, operator, operand) {
