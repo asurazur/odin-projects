@@ -7,21 +7,15 @@ document.addEventListener('click', (e) => {
     if (!e.target.classList.contains('btn')){
         return
     }
-
-    // Get The Properties of the Button
     let [id, classList] = getTargetProperties(e.target);
     
-    // If the button is an operand 
     if(classList.contains('btn-operand')) {
         // Update `operand` variable
         if (id === 'decimal' && operand.includes('.')) {
             return
         }
         operand += (e.target.textContent)
-    }
-
-    // If the button is a operator, update `operator button`
-    else if(classList.contains('btn-operator') || classList.contains('btn-other')) {
+    } else if(classList.contains('btn-operator') || classList.contains('btn-other')) {
         if (id === 'clear') {
             accumulator = ''
             operand = ''
@@ -34,7 +28,7 @@ document.addEventListener('click', (e) => {
             if (accumulator === '' || operator === '' || operand === '') { 
                 return
             }
-            accumulator = operate(Number(accumulator), operator, Number(operand))
+            accumulator = calculate(Number(accumulator), operator, Number(operand))
             operand = ''
         }
         else {
@@ -58,7 +52,7 @@ function updateDisplay() {
     document.getElementById('display').textContent = Number(operand) || Number(accumulator) || '0'
 }
 
-function operate(accumulator, operator, operand) {
+function calculate(accumulator, operator, operand) {
     if (operator === 'add') {
         return accumulator + operand
     }
