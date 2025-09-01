@@ -1,6 +1,8 @@
-html, body {
+html, body, fieldset {
     padding: 0;
     margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
 }
 
 @font-face {
@@ -9,6 +11,7 @@ html, body {
 }
 
 body {
+    background-color: #f9fafb;
     width: 100vw;
     height: 100vh;
     font-size: 62.5%;
@@ -21,19 +24,13 @@ main {
 }
 
 #sidebar {
-    padding: 100px 0px 20px 0px;
+    padding: 10rem 0px 2rem 0px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
     flex: 1;
     background: url(./img/fjord.jpg) center;
 }
-
-#form-section {
-    flex:2;
-}
-
 
 #logo {
     display: flex;
@@ -46,8 +43,8 @@ main {
 }
 
 #logo img {
-    width: 2em;
-    height: 2.5em;
+    width: 1.2em;
+    height: 1.5em;
 }
 
 #logo-text {
@@ -61,4 +58,93 @@ main {
     color: white;
     font-size: 1rem;
     text-align: center;
+}
+
+#form-section {
+    display: flex;
+    justify-content: center;
+    flex: 2;
+    flex-direction: column;
+    margin:auto
+}
+
+#description, #form, #cta {
+    box-sizing: border-box;
+    padding: 1rem 2rem;
+    flex: 0;
+}
+
+#description {
+    color: black;
+    font-size: 1.6rem;
+}
+
+#description p {
+    max-width: 53ch;
+}
+
+#form {
+    background-color: white;
+    color: #262815
+}
+
+h1 {
+    font-size: 2.1rem;
+    margin: 0px 0px 1.2rem 0px;
+}
+
+fieldset {
+    display: flex;
+    gap: 4rem;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+}
+
+label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: block;
+}
+
+input {
+    box-sizing: border-box;
+    border: 1px solid #E5E7EB;
+    width: 20rem;
+    height: 1.5rem;
+    padding: 0.5rem 0.5rem;
+    font-size: 1.2rem;
+}
+
+input[name="phone"] {
+    appearance: textfield;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+input:focus {
+    border-color: blue;
+    box-shadow: 0.3rem 0.3rem 0.5rem 0.25rem rgba(0,0,0,0.1);
+}
+
+button {
+    background-color: #596D48;
+    border-radius: 1rem;
+    padding: 1rem 3rem;
+    color: white;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#cta p {
+    font-size: 1rem;
+}
+
+#cta a {
+    text-decoration: none;
+    color: #596D48;
+    font-weight: 600;
 }
