@@ -28,7 +28,7 @@ li {
     grid-column: 1/1;
     grid-row: 1/3;
     align-items: start;
-    gap: 2rem;
+    gap: 4rem;
 }
 
 .sidebar .logo {
@@ -38,7 +38,9 @@ li {
     align-items: center;
     justify-content: start;
     font-size: 1.5rem;
-    gap: 0.5rem;
+    gap: 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
 }
 
 .menu li {
@@ -47,7 +49,10 @@ li {
     grid-template-columns: 24px auto;
     align-items: center;
     justify-content: start;
-    gap: 0.5rem;
+    gap: 2rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
 }
 
 .flip-horizontal {
