@@ -184,3 +184,21 @@ svg {
     padding: 0.8rem 1rem;
     text-align: center;
 }
+
+.content{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2rem;
+}
+
+.content > div {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+#projects-container {
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
