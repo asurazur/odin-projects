@@ -44,7 +44,6 @@ li {
 }
 
 .menu li {
-    fill: currentColor;
     display: grid;
     grid-template-columns: 24px auto;
     align-items: center;
@@ -72,8 +71,19 @@ li {
 }
 
 .search-bar {
+    display: flex;
     grid-column: 1/2;
     grid-row: 1/2;
+    gap: 1rem;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
+    background-color: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    border-radius: 2rem;
 }
 
 .user-profile {
@@ -85,7 +95,7 @@ li {
     grid-row: 1/2;
 }
 
-#notification-button {
+button {
   background: none;
   border: none;
   cursor: pointer;
@@ -93,9 +103,17 @@ li {
 }
 
 #notification-button svg {
-  width: 24px;
-  height: 24px;
-  fill: currentColor; /* change color */
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+#search-button {
+    padding: 0;
+}
+
+#search-button svg {
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 .user-profile span {
