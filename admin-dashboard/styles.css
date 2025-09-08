@@ -14,7 +14,7 @@ li {
 .main-container {
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 5fr;
+    grid-template-rows: 1fr 4fr;
     height: 100vh;
 }
 
@@ -65,6 +65,9 @@ li {
     background-color: #ffffff;
     grid-column: 2/3;
     grid-row: 1/2;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 .content{
