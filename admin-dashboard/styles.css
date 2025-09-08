@@ -68,6 +68,7 @@ li {
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
     align-items: center;
+    column-gap: 2rem;
 }
 
 .search-bar {
