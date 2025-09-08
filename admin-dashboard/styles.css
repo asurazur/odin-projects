@@ -68,6 +68,27 @@ li {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
+    align-items: center;
+}
+
+.search-bar {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.user-profile {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.greeting {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.actions {
+    grid-column: 2/3;
+    grid-row: 2/3;
 }
 
 .content{
@@ -76,4 +97,8 @@ li {
     background-color: #e2e8f0;
     grid-column: 2/3;
     grid-row: 2/3;
+}
+
+svg {
+    fill: currentColor;
 }
