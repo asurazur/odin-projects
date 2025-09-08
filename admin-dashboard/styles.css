@@ -6,6 +6,10 @@ html, body, ul {
     border: none;
 }
 
+div {
+    box-sizing: border-box;
+}
+
 li {
     font-size: 1.2rem;
     list-style: none;
@@ -239,4 +243,48 @@ svg {
 button svg {
     width: 2.4rem;
     height: 2.4rem;
+}
+
+#announcement {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+#trending {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.feed-card {
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    padding: 3rem;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+}
+
+.announcement-item {
+    border-bottom: 0.1rem solid #e2e8f0;
+}
+
+.announcement-item span {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.announcement-item p {
+    font-size: 1.2rem;
+    color: #475569;
+    margin: 0.4rem 0 1rem 0;
+}
+
+.announcement-item:last-child  {
+    border-bottom: none;
+    margin-bottom: 0;
+}   
+.announcement-item:last-child p {
+    margin-bottom: 0;
 }
