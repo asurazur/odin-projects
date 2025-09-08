@@ -13,9 +13,9 @@ li {
 
 .main-container {
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-columns: 1fr 5fr;
     height: 100vh;
+    width: 100vw;
 }
 
 .sidebar {
@@ -161,14 +161,6 @@ button {
     grid-row: 2/3;
 }
 
-.content{
-    box-sizing: border-box;
-    padding: 2rem;
-    background-color: #e2e8f0;
-    grid-column: 2/3;
-    grid-row: 2/3;
-}
-
 svg {
     fill: currentColor;
 }
@@ -186,6 +178,11 @@ svg {
 }
 
 .content{
+    box-sizing: border-box;
+    padding: 2rem;
+    background-color: #e2e8f0;
+    grid-column: 2/3;
+    grid-row: 2/3;
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr 1fr;
