@@ -60,7 +60,7 @@ li {
 
 .header {
     box-sizing: border-box;
-    padding: 2rem;
+    padding: 2rem 4rem;
     background-color: #ffffff;
     grid-column: 2/3;
     grid-row: 1/2;
@@ -89,11 +89,12 @@ li {
 
 .user-profile {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     gap: 2rem;
     grid-column: 2/3;
     grid-row: 1/2;
+    padding-right: 1rem;
 }
 
 button {
