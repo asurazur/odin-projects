@@ -32,7 +32,8 @@ button {
 }
 
 .main-container {
-
+    display: grid;
+    grid-template-rows: max-content 1fr;
 }
 
 .book-container {
@@ -60,7 +61,8 @@ button {
     height: 5rem;
     cursor: pointer;
     background-color: white;
-    border-radius: 50%
+    border-radius: 50%;
+    margin: 1rem auto;
 }
 
 #add-btn:hover {
