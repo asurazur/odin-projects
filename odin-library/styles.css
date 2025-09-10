@@ -10,3 +10,12 @@ button {
     border: none;
     background: none;
 }
+
+.header {
+    color: #1f1f1f;
+    background-color: white;
+    text-align: center;
+    font-size: 3.2rem;
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
