@@ -14,7 +14,6 @@ function addBookToLibrary(title, author, pages, read, date) {
     const book = new Book(id, title, author, pages, read, date);
     myLibrary.push(book);
 }
-
 // Loop through the array and display each book on the page
 
 // Add a “New Book” button that brings up a form allowing users to input the details for the new book and add it to the library: author, title, number of pages, whether it’s been read and anything else you might want.
