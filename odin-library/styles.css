@@ -19,3 +19,23 @@ button {
     padding: 1.5rem 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+#add-btn {
+    position: fixed;
+    left: 50%;
+    bottom: 2rem;
+    transform: translateX(-50%);
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%
+}
+
+#add-btn:hover {
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+}
+
+#add-btn:active {
+    filter: brightness(0.98);
+}
