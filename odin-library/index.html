@@ -10,6 +10,35 @@
     <div class="page-container">
         <div class="header">Library</div>
         <div class="main-container">
+            <dialog id="book-dialog">
+                <form id="add-book-form" action="" method="dialog">
+                    <legend>Add a new book</legend>
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" placeholder="Enter Book Title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" name="author" placeholder="Enter Book Author" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pages">Pages:</label>
+                        <input type="number" id="pages" name="pages" min="1" placeholder="Enter Book Pages" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" name="releaseDate">
+                    </div>
+                    <div class="form-group" id="read-box">
+                        <label for="read">Read:</label>
+                        <input type="checkbox" id="read" name="read">
+                    </div>
+                    <div class="form-buttons">
+                        <button id="submit-btn" type="submit">Add Book</button>
+                        <button id="cancel-btn" type="reset">Cancel</button>
+                    </div>
+                </form>
+            </dialog>
             <button id="add-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <title>plus</title>

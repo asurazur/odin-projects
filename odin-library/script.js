@@ -74,25 +74,27 @@ function toggleReadClass(target, isRead) {
 // Add a button on each book’s display to remove the book from the library.
 // Add a button on each book’s display to change its read status.
 document.addEventListener('click', (e) => {
-    if(e.target.classList.contains('toggle-read-btn')) {
-        // get the id of the book that the card refers to
-        const bookCard = e.target.closest('.book-card');
+    const toggleBtn = e.target.closest('.toggle-read-btn');
+    const deleteBtn = e.target.closest('.delete-btn');
+    const addBtn = e.target.closest('#add-btn');
+    const submitBtn = e.target.closest('#submit-btn');
+    const cancelBtn = e.target.closest('#cancel-btn');
+
+    if (toggleBtn) {
+        const bookCard = toggleBtn.closest('.book-card');
         const bookId = bookCard.getAttribute('data-id');
 
-        // loop through the myLibrary Array and check if the id match with one of the elements
         myLibrary.forEach((book) => {
-            if(book.id == bookId){
-                // if a match is found, toggle the read
-                book.read = !book.read
-                // modify the styles of the button for UX
-                toggleReadClass(e.target, book.read)
+            if (book.id == bookId) {
+                book.read = !book.read;
+                toggleReadClass(toggleBtn, book.read);
             }
-        })
+        });
     }
-    else if(e.target.classList.contains('delete-btn')) {
-        const bookCard = e.target.closest('.book-card');
+    else if (deleteBtn) {
+        const bookCard = deleteBtn.closest('.book-card');
         const bookId = bookCard.getAttribute('data-id');
-        if(bookCard){
+        if (bookCard) {
             bookCard.remove();
             const bookIndex = myLibrary.findIndex(book => book.id === bookId);
             if (bookIndex !== -1) {
@@ -101,5 +103,40 @@ document.addEventListener('click', (e) => {
         }
         console.log(myLibrary);
     }
+    else if (addBtn) {
+        const dialog = document.querySelector("dialog");
+        dialog.showModal();
+    }
+    else if (submitBtn) {
+        return
+    }
+    else if (cancelBtn) {
+        const dialog = document.querySelector("dialog");
+        dialog.close();
+    }
+
     displayBooks();
+});
+
+// Add Form Event Listener
+const dialog = document.querySelector("#book-dialog")
+const form = document.querySelector('#add-book-form')
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    // Collect Data
+    const formData = new FormData(form);
+    const title = formData.get("title")
+    const author = formData.get("author")
+    const pages = formData.get("pages")
+    const read = formData.get("read")
+    const date = new Date(formData.get("releaseDate")).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    })
+    addBookToLibrary(title, author, pages, read, date)
+    displayBooks();
+    form.reset();
+    dialog.close();
 })
