@@ -1,0 +1,187 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    box-sizing: border-box; 
+    font-size: 62.5%;
+}
+
+body {
+    height: 100vh;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+.page-container {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-rows: max-content 1fr;
+}
+
+.header {
+    color: #1f1f1f;
+    background-color: white;
+    text-align: center;
+    font-size: 3.2rem;
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-container {
+    display: grid;
+    grid-template-rows: max-content 1fr;
+}
+
+#book-container {
+    display: grid;
+    justify-content: center;
+    align-items: start;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, minmax(20rem, 25rem));
+    grid-auto-rows: minmax(20rem, 25rem);
+}
+
+.book-card {
+    align-self: stretch;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding: 1.8rem;
+}
+
+.book-info {
+    display: grid;
+    grid-template-rows: min-content;
+    grid-auto-rows: min-content;
+    gap: 1rem;
+    align-items: center;
+    font-size: 1.8em;
+}
+.book-info > :first-child{
+    text-align: center;
+    font-size: 2.1em;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    border-bottom: 0.2rem solid #676767;
+}
+
+.book-buttons {
+    display:grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.book-buttons button {
+    padding: 0.8rem;
+    border: 0.1rem solid #1f1f1f;
+    border-radius: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+}
+
+.book-buttons .toggle-read-btn {
+    background-color: #1f1f1f;
+    color: white;
+}
+
+.book-buttons .toggle-read-btn.read {
+    background-color: aquamarine;
+    color: #1f1f1f;
+}
+
+.book-buttons .toggle-read-btn.unread {
+    background-color: rgb(134, 134, 134);
+    color: white;
+}
+
+.book-buttons .delete-btn {
+    background-color: crimson;
+    color: white;
+}
+
+#add-btn {
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+    margin: 1rem auto;
+}
+
+button:hover {
+    box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    filter: brightness(0.97);
+}
+
+dialog {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    border: none;
+    border: 0.1rem solid #1f1f1f;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+#add-book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group#read-box{
+    flex-direction: row;
+}
+
+form legend {
+    font-weight: bold;
+    font-size: 2.4rem;
+}
+
+.form-group label {
+    font-size: 1.8rem;
+}
+
+.form-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-buttons button {
+    padding: 1rem;
+    border: 0.1rem solid black;
+    border-radius: .8rem;
+
+}
+
+.form-buttons #submit-btn {
+    background-color: aquamarine;
+    color: #1f1f1f;
+}
+
+.form-buttons #cancel-btn {
+    background-color: crimson;
+    color: white;
+}
+
+#book-dialog::backdrop{
+    backdrop-filter: blur(2px);
+}
