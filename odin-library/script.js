@@ -88,6 +88,18 @@ document.addEventListener('click', (e) => {
                 toggleReadClass(e.target, book.read)
             }
         })
-        displayBooks();
     }
+    else if(e.target.classList.contains('delete-btn')) {
+        const bookCard = e.target.closest('.book-card');
+        const bookId = bookCard.getAttribute('data-id');
+        if(bookCard){
+            bookCard.remove();
+            const bookIndex = myLibrary.findIndex(book => book.id === bookId);
+            if (bookIndex !== -1) {
+                myLibrary.splice(bookIndex, 1);
+            }
+        }
+        console.log(myLibrary);
+    }
+    displayBooks();
 })
