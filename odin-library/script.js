@@ -21,6 +21,42 @@ addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, false, "July 11, 19
 addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, true, "April 10, 1925");
 
 // Loop through the array and display each book on the page
+function displayBooks() {
+    const bookContainer = document.getElementById('book-container');
+    bookContainer.innerHTML = ''; // Clear previous content
+
+    myLibrary.forEach((book) => {
+        const bookCard = document.createElement('div');
+        bookCard.classList.add('book-card');
+        bookCard.setAttribute('data-id', book.id);
+
+        const bookInfo = document.createElement('div');
+        bookInfo.classList.add('book-info');
+        const title = document.createElement('div');
+        title.textContent = book.title; 
+        const author = document.createElement('div'); 
+        author.textContent = `Author: ${book.author}`;
+        const pages = document.createElement('div'); 
+        pages.textContent = `Pages: ${book.pages}`;
+        const date = document.createElement('div'); 
+        date.textContent = `Release Date: ${book.date}`;
+        bookInfo.append(title, author, pages, date);
+
+        const bookButtons = document.createElement('div');
+        bookButtons.classList.add('book-buttons');
+        const toggleReadBtn = document.createElement('button');
+        toggleReadBtn.classList.add('toggle-read-btn');
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('delete-btn');
+        toggleReadBtn.textContent = book.read ? 'Read' : 'Not Read';
+        deleteBtn.textContent = 'Delete';
+        bookButtons.append(toggleReadBtn, deleteBtn);
+
+        bookCard.append(bookInfo, bookButtons);
+        bookContainer.appendChild(bookCard);
+    })
+}
+displayBooks();
 
 // Add a “New Book” button that brings up a form allowing users to input the details for the new book and add it to the library: author, title, number of pages, whether it’s been read and anything else you might want.
 
