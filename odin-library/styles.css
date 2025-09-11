@@ -36,25 +36,65 @@ button {
     grid-template-rows: max-content 1fr;
 }
 
-.book-container {
+#book-container {
     display: grid;
     justify-content: center;
     align-items: start;
     gap: 1.5rem;
-    grid-template-columns: repeat(3, minmax(10rem, 20rem));
-    grid-auto-rows: minmax(10rem, 20rem);
+    grid-template-columns: repeat(3, minmax(20rem, 25rem));
+    grid-auto-rows: minmax(20rem, 25rem);
 }
 
 .book-card {
     align-self: stretch;
     background-color: white;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding: 1.8rem;
 }
 
+.book-info {
+    display: grid;
+    grid-template-rows: min-content;
+    grid-auto-rows: min-content;
+    gap: 1rem;
+    align-items: center;
+    font-size: 1.8em;
+}
+.book-info > :first-child{
+    text-align: center;
+    font-size: 2.1em;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    border-bottom: 0.2rem solid #676767;
+}
+
+.book-buttons {
+    display:grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.book-buttons button {
+    padding: 0.8rem;
+    border: 0.1rem solid #1f1f1f;
+    border-radius: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+}
+
+.book-buttons .toggle-read-btn {
+    background-color: #1f1f1f;
+    color: white;
+}
+
+.book-buttons .remove-btn {
+    background-color: white;
+    color: #1f1f1f;
+}
 
 #add-btn {
     width: 5rem;
@@ -65,10 +105,10 @@ button {
     margin: 1rem auto;
 }
 
-#add-btn:hover {
-    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+button:hover {
+    box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.2);
 }
 
-#add-btn:active {
-    filter: brightness(0.98);
+button:active {
+    filter: brightness(0.97);
 }
