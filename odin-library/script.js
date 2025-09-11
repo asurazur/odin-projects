@@ -47,8 +47,9 @@ function displayBooks() {
         const toggleReadBtn = document.createElement('button');
         toggleReadBtn.classList.add('toggle-read-btn');
         const deleteBtn = document.createElement('button');
-        deleteBtn.classList.add('delete-btn');
         toggleReadBtn.textContent = book.read ? 'Read' : 'Not Read';
+        toggleReadClass(toggleReadBtn, book.read)
+        deleteBtn.classList.add('delete-btn');
         deleteBtn.textContent = 'Delete';
         bookButtons.append(toggleReadBtn, deleteBtn);
 
@@ -60,6 +61,33 @@ displayBooks();
 
 // Add a “New Book” button that brings up a form allowing users to input the details for the new book and add it to the library: author, title, number of pages, whether it’s been read and anything else you might want.
 
-// Add a button on each book’s display to remove the book from the library.
+function toggleReadClass(target, isRead) {
+    if (isRead) {
+        target.classList.add('read');
+        target.classList.remove('unread');
+    } else {
+        target.classList.add('unread');
+        target.classList.remove('read');
+    }
+}
 
+// Add a button on each book’s display to remove the book from the library.
 // Add a button on each book’s display to change its read status.
+document.addEventListener('click', (e) => {
+    if(e.target.classList.contains('toggle-read-btn')) {
+        // get the id of the book that the card refers to
+        const bookCard = e.target.closest('.book-card');
+        const bookId = bookCard.getAttribute('data-id');
+
+        // loop through the myLibrary Array and check if the id match with one of the elements
+        myLibrary.forEach((book) => {
+            if(book.id == bookId){
+                // if a match is found, toggle the read
+                book.read = !book.read
+                // modify the styles of the button for UX
+                toggleReadClass(e.target, book.read)
+            }
+        })
+        displayBooks();
+    }
+})

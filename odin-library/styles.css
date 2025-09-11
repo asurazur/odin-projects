@@ -91,6 +91,16 @@ button {
     color: white;
 }
 
+.book-buttons .toggle-read-btn.read {
+    background-color: aquamarine;
+    color: #1f1f1f;
+}
+
+.book-buttons .toggle-read-btn.unread {
+    background-color: rgb(134, 134, 134);
+    color: white;
+}
+
 .book-buttons .remove-btn {
     background-color: white;
     color: #1f1f1f;
