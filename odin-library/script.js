@@ -4,9 +4,9 @@ function Book(id, title, author, pages, read, date) {
     this.id = id;
     this.title = title;
     this.author = author;
-    this.releaseDate = date;
     this.pages = pages;
     this.read = read;
+    this.date = date;
 }
 
 function addBookToLibrary(title, author, pages, read, date) {
