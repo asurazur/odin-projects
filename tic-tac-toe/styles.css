@@ -11,19 +11,25 @@ html, body {
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    height: 100vh; /* full height of viewport */
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center;     /* centers vertically */
+}
+
 #page-container {
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: 3rem;
 }
 
 #page-container #header {
     font-size: 3.2rem;
-    padding: 2rem;
     font-weight: bold;
     text-align: center;
-    background-color: white;
-
+    color: white;
 }
 
 #board {
