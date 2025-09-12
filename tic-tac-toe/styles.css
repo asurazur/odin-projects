@@ -29,16 +29,21 @@ html, body {
 #board {
     display: grid;
     width: fit-content;
-    grid-template-columns: repeat(3, 150px);
-    grid-template-rows: repeat(3, 150px);
+    grid-template-columns: repeat(3, 15rem);
+    grid-template-rows: repeat(3, 15rem);
     margin: auto;
     gap: 0.5rem;
     background-color: white;
 }
 
 .cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15rem;
     background-color: #1f1f1f;
     cursor: pointer;
+    color: white;
 }
 
 #score-board {
