@@ -1,11 +1,63 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #1f1f1f;
     box-sizing: border-box; 
     font-size: 62.5%;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
-body {
-    height: 100vh;
+* {
+    box-sizing: border-box;
+}
+
+#page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+#page-container #header {
+    font-size: 3.2rem;
+    padding: 2rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: white;
+
+}
+
+#board {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    margin: auto;
+    gap: 0.5rem;
+    background-color: white;
+}
+
+.cell {
+    background-color: #1f1f1f;
+    cursor: pointer;
+}
+
+#score-board {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-template-rows: 0.5fr 1fr;
+    grid-template-areas: 
+        "al tl bl"
+        "av tv bv";
+    color: white;
+    justify-content: center;
+    justify-items: center;
+    column-gap: 5rem;
+}
+
+#score-board > .score-label {
+    font-size: 36px;
+}
+
+#score-board > .score-value {
+    font-size: 42px;
 }
