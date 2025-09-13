@@ -1,0 +1,80 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #1f1f1f;
+    box-sizing: border-box; 
+    font-size: 62.5%;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh; /* full height of viewport */
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center;     /* centers vertically */
+}
+
+#page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#page-container #header {
+    font-size: 3.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+#page-container #who-turn {
+    font-size: 2.4rem;
+    text-align: center;
+    color: white;
+}
+
+#board {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: repeat(3, 15rem);
+    grid-template-rows: repeat(3, 15rem);
+    margin: auto;
+    gap: 0.5rem;
+    background-color: white;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15rem;
+    background-color: #1f1f1f;
+    cursor: pointer;
+    color: white;
+}
+
+#score-board {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-template-rows: 0.5fr 1fr;
+    grid-template-areas: 
+        "al tl bl"
+        "av tv bv";
+    color: white;
+    justify-content: center;
+    justify-items: center;
+    column-gap: 5rem;
+}
+
+#score-board > .score-label {
+    font-size: 36px;
+}
+
+#score-board > .score-value {
+    font-size: 42px;
+}
