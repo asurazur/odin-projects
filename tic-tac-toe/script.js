@@ -171,6 +171,15 @@ const viewController = (gameInstance) => {
         }
         // Update Div with Score
     }
+    const updateTurn = () => {
+        const turnDiv = document.querySelector("#who-turn");
+        const playerName = game.getActivePlayer().getName();
+        turnDiv.textContent = `It's ${playerName} Turn`
+    }
+    const updateScreen = () => {
+        updateScore();
+        updateTurn();
+    }
     const createBoard = () => {
         let boardHTML = document.querySelector('#board');
         boardHTML.innerHTML = ''
@@ -186,32 +195,30 @@ const viewController = (gameInstance) => {
                     const playerValue = game.getBoard().getCell(i, j).getValue();
                     const token = playerValue === 1 ? 'X' : 'O';
                     cell.textContent = token;
-
+                    
                     // Check Winner, Notify Winner, Add Score
                     const winner = game.getBoard().checkWinner()
                     if([1,2].includes(winner)){
                         const winnerPlayer = game.getPlayer(winner)
                         winnerPlayer.addScore()
-                        view.updateScore()
                         game.resetBoard()
-                        view.createBoard()
+                        createBoard()
                     } 
                     else if(game.getBoard().isBoardFull()){
                         game.getPlayer(0).addScore()
-                        view.updateScore()
                         game.resetBoard()
-                        view.createBoard()
+                        createBoard()
                     }
+                    updateScreen()
                 })
                 boardHTML.append(cell)
             }
         }
     }
-    return {createBoard, updateScore}
+    return {createBoard, updateScreen}
 }
 
 const game = GameController();
 const view = viewController(game);
-
-// Add Rows and Column in index html and add row and column attributes dynamically
-view.createBoard()
+view.updateScreen();
+view.createBoard();
