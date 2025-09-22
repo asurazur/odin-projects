@@ -110,6 +110,11 @@ header {
     gap: 5rem;
 }
 
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
 header img {
     height: 6rem;
     width: 6rem;
