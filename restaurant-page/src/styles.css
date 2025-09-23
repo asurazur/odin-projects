@@ -84,6 +84,7 @@ header {
     align-items: center;
     padding: 1rem 8rem;
     gap: 5rem;
+    border-bottom: solid 0.5px var(--secondary-color);
 }
 
 .sticky {
