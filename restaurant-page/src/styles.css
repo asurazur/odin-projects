@@ -305,7 +305,9 @@ nav {
 }
 
 footer {
-    padding: 8rem;
+    padding: 8rem 8rem 2rem 8rem;
+    background-color: var(--secondary-color);
+    margin-top: 16rem;
 }
 
 #copyright {
