@@ -80,6 +80,8 @@ h4.uppercase{
 /* Header */
 header {
     /* Rakuzen/Primary */
+    position: sticky;
+    top: 0;
     background: var(--primary-color);
     display: flex;
     flex-direction: row;
