@@ -67,11 +67,13 @@ h4.uppercase{
 
 .p1 {
     font-size: 1.8rem;
-    font-style: bold;
+    font-weight: 600;
+    color: var(--primary-color);
 }
 
 .p2 {
     font-size: 1.6rem;
+    color: var(--primary-color);
 }
 
 /* Header */
@@ -186,4 +188,50 @@ nav {
     background: none;
     color: var(--accent-color);
     border: 0.1rem solid var(--secondary-color);
+}
+
+/* Testimonials */
+
+#testimonials {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    gap: 5rem;
+}
+
+#testimonials h1 {
+    color: var(--primary-color);
+}
+
+#testimonials > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2.6rem;
+}
+
+.testimonial-card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.testimonial-card > div:nth-of-type(2) {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-card > q {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;   /* limit to 5 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* adds "..." at the end */
+}
+
+.testimonial-card a {
+    color: blue;
+    text-decoration: none;
 }
