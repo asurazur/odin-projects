@@ -144,6 +144,10 @@ nav {
     gap: 2rem;
 }
 
+#hero-caption .p1 {
+    color: var(--secondary-color);
+}
+
 #hero-image > img {
     height: 50rem;
     width: 50rem;
@@ -228,6 +232,7 @@ nav {
 }
 
 .testimonial-card > q {
+  color: var(--primary-color);
   display: -webkit-box;
   -webkit-line-clamp: 5;   /* limit to 5 lines */
   -webkit-box-orient: vertical;
