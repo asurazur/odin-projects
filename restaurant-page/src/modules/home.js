@@ -55,20 +55,6 @@ export function loadHero() {
     content.appendChild(hero)
 }
 
-// <div id="hero">
-//     <div id="hero-caption">
-//         <div id="headline"><span>Authentic Ramen</span> in Legazpi City</div>
-//         <p class="p1">From steaming bowls of ramen to delicate sushi, experience the warmth and authenticity of Japan right here in Legazpi City.</p>
-//         <div id="cta-buttons">
-//             <button class="cta primary-btn">Reserve Now</button>
-//             <button class="cta outline-btn">See Menu</button>
-//         </div>
-//     </div>
-//     <div id="hero-image">
-//         <img src="./images/hero-image.jpeg" alt="Ramen, done right.">
-//     </div>
-// </div>
-
 export function loadTestimonials(){
     const section = document.createElement("div");
     section.id = "testimonials";
