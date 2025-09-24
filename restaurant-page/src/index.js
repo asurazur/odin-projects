@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Your JavaScript code that interacts with the DOM goes here
     const homeButton = document.querySelector("#home-btn");
     const menuButton = document.querySelector("#menu-btn");
-    const aboutButton = document.querySelector("#about-btn");
     const contactButton = document.querySelector("#contact-btn");
 
     function setActiveButton(button) {
@@ -39,4 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
         loadContact();
         setActiveButton(contactButton);
     })
+
+    homeButton.click();
 });

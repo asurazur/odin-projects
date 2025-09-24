@@ -312,7 +312,6 @@ nav {
 footer {
     padding: 8rem 8rem 2rem 8rem;
     background-color: var(--secondary-color);
-    margin-top: 16rem;
 }
 
 #copyright {
@@ -364,6 +363,7 @@ footer > div:first-of-type {
 
 #contact-section {
     border-top: 0.1rem solid var(--secondary-color);
+    margin-bottom: 16rem;
 }
 
 #content > #contact-section {
