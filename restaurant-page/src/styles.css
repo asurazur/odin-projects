@@ -119,7 +119,7 @@ nav {
     border-bottom: 2px solid var(--accent-color);
 }
 
-.hyperlink:focus {
+.hyperlink:focus, .active {
     color: var(--accent-color);
 }
 
