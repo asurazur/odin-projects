@@ -258,7 +258,7 @@ nav {
     color: var(--accent-color);
 }
 
-#menu-section > div:nth-of-type(1) {
+#menu-section > div{
     display: flex;
     flex-direction: row;
     gap: 13rem;

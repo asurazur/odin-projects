@@ -1,5 +1,6 @@
 import "./styles.css";
 import {loadHero, loadTestimonials} from "./modules/home.js";
+import { loadMenu } from "./modules/menu.js";
 
 document.addEventListener('DOMContentLoaded', function() {
     // Your JavaScript code that interacts with the DOM goes here
@@ -15,50 +16,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     homeButton.addEventListener('click', () => {
+        const content = document.querySelector('#content');
+        content.innerHTML = '';
         loadHero();
         loadTestimonials();
         setActiveButton(homeButton);
     })
+
+    menuButton.addEventListener('click', () => {
+        const content = document.querySelector('#content');
+        content.innerHTML = '';
+        loadMenu();
+        setActiveButton(menuButton);
+    })
 });
 
 
-        // <div id="menu-section">
-        //     <h1>Menu</h1>
-        //     <div>
-        //         <ul id="selections">
-        //             <li><a href="#" class="hyperlink">All</a></li>
-        //             <li><a href="#" class="hyperlink">Best Seller</a></li>
-        //             <li><a href="#" class="hyperlink">Appetizer</a></li>
-        //             <li><a href="#" class="hyperlink">Yakisoba</a></li>
-        //             <li><a href="#" class="hyperlink">Ramen</a></li>
-        //             <li><a href="#" class="hyperlink">Rice Meal</a></li>
-        //             <li><a href="#" class="hyperlink">Dessert</a></li>
-        //             <li><a href="#" class="hyperlink">Beverage</a></li>
-        //         </ul>
-        //         <div id="menu-container">
-        //             <div class="menu-card">
-        //                 <img src="./images/tonkotsu.png" alt="tonkotsu">
-        //                 <h4>Rakuzen Tonkotsu Ramen</h4>
-        //                 <p class="p2">chashu, soft-boiled egg, kikurage</p>
-        //             </div>
-        //             <div class="menu-card">
-        //                 <img src="./images/teriyakidon.png" alt="">
-        //                 <h4>Chicken Teriyakidon</h4>
-        //                 <p class="p2">chicken thighs, sweet savory teriyaki sauce</p>
-        //             </div>
-        //             <div class="menu-card">
-        //                 <img src="./images/okonomiyaki.png" alt="">
-        //                 <h4>Okonomiyaki</h4>
-        //                 <p class="p2">pork, cabbage, leeks bonito flakes</p>
-        //             </div>
-        //             <div class="menu-card">
-        //                 <img src="./images/gyoza.png" alt="">
-        //                 <h4>Gyoza</h4>
-        //                 <p class="p2">pork, cabbage, shitake mushroom</p>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
+       
+
         // <div id="contact-section">
         //     <div id="contact-heading">
         //         <h1>Get in Touch</h1>
