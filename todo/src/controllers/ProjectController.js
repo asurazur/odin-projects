@@ -1,6 +1,7 @@
 import { ProjectView } from "../views/ProjectView";
 import { ProjectList } from "../models/ProjectList";
 import { TodoView } from "../views/TodoView";
+import { TodoModel } from "../models/TodoModel";
 
 export class ProjectController {
     constructor() {
@@ -10,6 +11,7 @@ export class ProjectController {
 
         // Bind Events
         this.ProjectView.bindAddProject(this.handleAddProject);
+        this.TodoView.bindAddTodo(this.handleAddTodo);
         this.updateView();
     }
 
@@ -31,14 +33,34 @@ export class ProjectController {
         this.updateView();
     }
 
-    handleAddTodo = () => {
-        this.ProjectListModel.getActiveProject().todo = new TodoModel('Task')
+    handleAddTodo = (formData) => {
+        const title = formData.get('title');
+        const description = formData.get('description');
+        const priority = formData.get('priority');
+        const dueDate = new Date(formData.get('dueDate')).toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
+        
+        this.ProjectListModel.getActiveProject().todo = new TodoModel(
+            title, description, dueDate, priority
+        );
+        
+        this.updateView();
     }
 
     updateView(){
-        // Sidebar Update
+        // View Update
         this.ProjectView.displayProjects(this.ProjectListModel.getProjects(), this.ProjectListModel.getActiveProject());
+        
+        // Add Bindings
         this.ProjectView.bindRemoveProject(this.handleRemoveProject);
         this.ProjectView.bindSelectProject(this.handleSelectProject);   
+
+        // Only View Selected Project
+        if(this.ProjectListModel.getActiveProject() != null){
+            this.TodoView.displayTodos(this.ProjectListModel.getActiveProject().todo);
+        }
     }
 }
