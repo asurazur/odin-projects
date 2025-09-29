@@ -1,5 +1,6 @@
-export class ToDo{
+export class TodoModel{
     constructor(title, description, dueDate, priority){
+        this.id = crypto.randomUUID();
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
@@ -28,5 +29,8 @@ export class ToDo{
     }
     get priority(){
         return this._priority;
+    }
+    getId(){
+        return this.id;
     }
 }

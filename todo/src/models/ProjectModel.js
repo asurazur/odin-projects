@@ -1,8 +1,7 @@
-import { ToDo } from "./todo.js";
-
-export class Project {
+export class ProjectModel {
     #todos = [];
     constructor(title) {
+        this.id = crypto.randomUUID();
         this.title = title;
     }
     set todo(value) {
@@ -16,5 +15,8 @@ export class Project {
     }
     get title() {
         return this._title;
+    }
+    getId(){
+        return this.id;
     }
 }
