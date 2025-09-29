@@ -5,6 +5,7 @@ export class TodoModel{
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
+        this.isFinish = false;
     }
     set title(value){
         this._title = value;
@@ -29,6 +30,12 @@ export class TodoModel{
     }
     get priority(){
         return this._priority;
+    }
+    toggleStatus(){
+        this.isFinish = !this.isFinish;
+    }
+    getIsFinish(){
+        return this.isFinish;
     }
     getId(){
         return this.id;

@@ -37,16 +37,21 @@ export class ProjectController {
         const title = formData.get('title');
         const description = formData.get('description');
         const priority = formData.get('priority');
-        const dueDate = new Date(formData.get('dueDate')).toLocaleDateString("en-GB", {
-            day: "numeric",
-            month: "long",
-            year: "numeric"
-        });
+        const dueDate = new Date(formData.get('dueDate'));
         
         this.ProjectListModel.getActiveProject().todo = new TodoModel(
             title, description, dueDate, priority
         );
         
+        this.updateView();
+    }
+
+    handleToggleTodo = (id) => {
+        const todo = this.ProjectListModel
+            .getActiveProject().todo.find(
+                item => item.id == id
+        );
+        todo.toggleStatus();
         this.updateView();
     }
 
@@ -62,5 +67,6 @@ export class ProjectController {
         if(this.ProjectListModel.getActiveProject() != null){
             this.TodoView.displayTodos(this.ProjectListModel.getActiveProject().todo);
         }
+        this.TodoView.bindToggleTodo(this.handleToggleTodo);
     }
 }
