@@ -108,6 +108,6 @@ export class TodoView {
         const dueDiv = document.createElement('div');
         propertiesDiv.appendChild(dueDiv);
         dueDiv.classList.add('p2');
-        dueDiv.textContent = formatDistance(todo.dueDate, new Date(), { addSuffix: true })
+        dueDiv.textContent = formatDistance(todo.dueDate, new Date, { addSuffix: true })
     }
 }

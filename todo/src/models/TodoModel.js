@@ -1,11 +1,11 @@
 export class TodoModel{
-    constructor(title, description, dueDate, priority){
+    constructor(title, description, dueDate, priority, isFinish=false){
         this.id = crypto.randomUUID();
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
-        this.isFinish = false;
+        this.isFinish = isFinish;
     }
     set title(value){
         this._title = value;

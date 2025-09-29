@@ -6,8 +6,7 @@ export class ProjectList {
         this.activeProject = null;
     };
 
-    addProject(title) {
-        const project = new ProjectModel(title);
+    addProject(project) {
         this.projects.push(project);
     };
 
@@ -37,9 +36,3 @@ export class ProjectList {
         );
     };
 }
-
-// const projects = new ProjectList();
-// projects.addProject('Cleaning');
-// projects.addProject('Feeding');
-// console.log(projects)
-// console.log('Hello')

@@ -2,10 +2,17 @@ import { ProjectView } from "../views/ProjectView";
 import { ProjectList } from "../models/ProjectList";
 import { TodoView } from "../views/TodoView";
 import { TodoModel } from "../models/TodoModel";
+import Storage from "../models/Storage";
+import { ProjectModel } from "../models/ProjectModel";
 
 export class ProjectController {
     constructor() {
-        this.ProjectListModel = new ProjectList();
+        this.ProjectListModel = this.loadFromStorage() || new ProjectList();
+        if (!this.ProjectListModel.getProjects().length) {
+            this.ProjectListModel.addProject(new ProjectModel("Default"));
+        }
+
+        // Set Up Views
         this.ProjectView = new ProjectView();
         this.TodoView = new TodoView();
 
@@ -16,13 +23,15 @@ export class ProjectController {
     }
 
     handleAddProject = (title) => {
-        // Add Project to Project List
-        this.ProjectListModel.addProject(title);
+        // Add Project to Project 
+        this.ProjectListModel.addProject(new ProjectModel(title));
+        this.saveToStorage();
         this.updateView();
     }
 
     handleRemoveProject = (id) => {
         this.ProjectListModel.removeProject(id);
+        this.saveToStorage();
         this.updateView();
     }
 
@@ -42,6 +51,7 @@ export class ProjectController {
         this.ProjectListModel.getActiveProject().todo = new TodoModel(
             title, description, dueDate, priority
         );
+        this.saveToStorage();
         
         this.updateView();
     }
@@ -52,6 +62,7 @@ export class ProjectController {
                 item => item.id == id
         );
         todo.toggleStatus();
+        this.saveToStorage();
         this.updateView();
     }
 
@@ -68,5 +79,34 @@ export class ProjectController {
             this.TodoView.displayTodos(this.ProjectListModel.getActiveProject().todo);
         }
         this.TodoView.bindToggleTodo(this.handleToggleTodo);
+    }
+
+    saveToStorage() {
+        Storage.save(this.ProjectListModel);
+    }
+
+    loadFromStorage() {
+        const data = Storage.load("todoApp");
+        if (!data) return null;
+        const projectList = new ProjectList();
+
+        // Rebuild Projects
+        data.projects.forEach((p) => {
+            const project = new ProjectModel(p._title);
+
+            p.todos.forEach((t) => {
+                const todo = new TodoModel(
+                    t._title,
+                    t._description,
+                    new Date(t._dueDate),
+                    t._priority,
+                    t.isFinish
+                );
+                project.todo = todo;
+            })
+            projectList.addProject(project);
+        })
+
+        return projectList;
     }
 }
