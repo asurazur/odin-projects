@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo</title>
-    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
     <main>
         <div id="sidebar">
-            <h2>Projects</h2>
+            <h4>Projects</h4>
             <div id="project-div">
                 <!-- Divs of Projects; class:project -->
+                 <div class="p1">Project 1</div >
+                 <div class="p1">Project 2</div >
             </div>
-            <div id="add-project-div">
-                <button id="add-project">New List</button>
-            </div>
+            <form id="add-project-form">
+                <input type="text" id="project-name-field" placeholder="Enter Project Name" />
+                <button id="add-project" type="submit">New List</button>
+            </form>
         </div>
         <div id="content">
             <div>
-                <h1 id="project-name">Project Name</h1>
+                <h3 id="project-name">Project Name</h3>
             </div>
             <div id="todo-list">
                 <!-- divs of todo item; class todo-item -->
+                 <div class="todo-item p1">Todo 1</div>
             </div>
             <div id="add-todo-div">
-                <button id="add-todo">New Task</button>
+                <button id="add-todo" class="todo-item p1">New Task</button>
             </div>
         </div>    
     </main>
