@@ -1,14 +1,12 @@
 import { ProjectView } from "../views/ProjectView";
 import { ProjectList } from "../models/ProjectList";
 import { TodoView } from "../views/TodoView";
-import { TodoModel } from "../models/TodoModel";
 
 export class ProjectController {
     constructor() {
         this.ProjectListModel = new ProjectList();
         this.ProjectView = new ProjectView();
         this.TodoView = new TodoView();
-        this.TodoModel = new TodoModel();
 
         // Bind Events
         this.ProjectView.bindAddProject(this.handleAddProject);
@@ -29,7 +27,12 @@ export class ProjectController {
     handleSelectProject = (id) => {
         this.ProjectListModel.setActiveProject(id);
         this.ProjectView.changeProjectName(this.ProjectListModel.getActiveProject().title);
+        // update TodoView
         this.updateView();
+    }
+
+    handleAddTodo = () => {
+        this.ProjectListModel.getActiveProject().todo = new TodoModel('Task')
     }
 
     updateView(){
