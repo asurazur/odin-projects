@@ -22,6 +22,7 @@ export class ProjectView {
         this.deleteButtons.forEach((button) => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
                 const id = button.closest('.project-item').dataset.id;
                 handler(id);
             })
@@ -34,6 +35,7 @@ export class ProjectView {
         projectsContainer.forEach((project) => {
             project.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
                 const id = project.dataset.id;
                 projectsContainer.forEach(project => project.classList.remove('active'));
                 handler(id);
