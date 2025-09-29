@@ -20,6 +20,44 @@
             </form>
         </div>
         <div id="content">
+            <dialog id="todo-dialog">
+                <form id="todo-form" action="" method="dialog">
+                    <legend>Add Task</legend>
+                    <div class="form-group">
+                        <label for="title">Task:</label>
+                        <input type="text" id="title" name="title" placeholder="Enter Task" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <input type="text" id="description" name="description" placeholder="Enter Task Description" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dueDate">Due Date:</label>
+                        <input type="date" name="dueDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Priority:</label>
+                        <div id="priority-radio">
+                            <div>
+                                <input type="radio" name="priority" id="high" value="High">
+                                <label for="high">High</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="priority" id="medium" value="Medium">
+                                <label for="medium">Medium</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="priority" id="low" value="Low">
+                                <label for="low">Low</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button id="submit-btn" type="submit">Add Task</button>
+                        <button id="cancel-btn" type="reset">Cancel</button>
+                    </div>
+                </form>
+            </dialog>
             <div>
                 <h3 id="project-name">Project Name</h3>
             </div>
