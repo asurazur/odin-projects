@@ -1,0 +1,1 @@
+import{ProjectController}from"./controllers/ProjectController";import"./styles/styles.css";new ProjectController;
