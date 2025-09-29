@@ -10,8 +10,10 @@ export class ProjectController {
         this.ProjectListModel = this.loadFromStorage() || new ProjectList();
         if (!this.ProjectListModel.getProjects().length) {
             this.ProjectListModel.addProject(new ProjectModel("Default"));
-        }
-
+        };
+        this.ProjectListModel.setActiveProject(
+            this.ProjectListModel.getProjects()[0].getId()
+        );
         // Set Up Views
         this.ProjectView = new ProjectView();
         this.TodoView = new TodoView();
@@ -37,7 +39,6 @@ export class ProjectController {
 
     handleSelectProject = (id) => {
         this.ProjectListModel.setActiveProject(id);
-        this.ProjectView.changeProjectName(this.ProjectListModel.getActiveProject().title);
         // update TodoView
         this.updateView();
     }
@@ -69,6 +70,7 @@ export class ProjectController {
     updateView(){
         // View Update
         this.ProjectView.displayProjects(this.ProjectListModel.getProjects(), this.ProjectListModel.getActiveProject());
+        this.ProjectView.changeProjectName(this.ProjectListModel.getActiveProject().title);
         
         // Add Bindings
         this.ProjectView.bindRemoveProject(this.handleRemoveProject);
