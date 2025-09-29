@@ -169,6 +169,19 @@ h4 {
 	background-color: #e0e0e0;
 }
 
+#add-todo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
+	width: 100%;
+	padding: 1rem;
+	background-color: #FAFAFA;
+	color: #212121;
+	border-radius: 0.5rem;
+	text-align: left;
+}
+
 dialog {
     position: absolute;
     /* top: 50%; */
