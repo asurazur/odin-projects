@@ -185,3 +185,9 @@ form legend {
 #book-dialog::backdrop{
     backdrop-filter: blur(2px);
 }
+
+.validation-message {
+    font-size: 1.2rem;
+    color: red;
+    font-weight: bold;
+}

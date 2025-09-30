@@ -125,7 +125,6 @@ const dialog = document.querySelector("#book-dialog")
 const form = document.querySelector('#add-book-form')
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    
     // Collect Data
     const formData = new FormData(form);
     const title = formData.get("title")
@@ -141,4 +140,21 @@ form.addEventListener("submit", (e) => {
     displayBooks();
     form.reset();
     dialog.close();
+})
+
+// Use Web Validation API
+const submitBtn = document.querySelector('#submit-btn')
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const inputs = form.querySelectorAll('.form-group')
+    inputs.forEach((input) => {
+        const inputField = input.querySelector('input') 
+        const validation = input.querySelector('.validation-message')
+        if (!inputField.checkValidity()) {
+            validation.textContent = inputField.validationMessage;
+        } else {
+            validation.textContent = '';
+        }
+
+    })
 })
