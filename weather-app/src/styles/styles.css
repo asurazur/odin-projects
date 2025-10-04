@@ -10,9 +10,161 @@ body {
 
 body {
   font-size: 62.5%;
+  font-family: "Roboto", "Noto Sans", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
 }
 
 .weather-container {
+  background-color: #665be8;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 1px solid black;
+  width: 40rem;
+}
+
+#control-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+#control-panel form {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+#control-panel #search-button {
+  align-self: stretch;
+}
+
+#search-location {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+#overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.temperature {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 1rem;
+}
+
+#location-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 1rem;
+  text-align: center;
+  color: #fafafa;
+}
+
+#condition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fafafa;
+}
+
+#condition svg {
+  width: fit-content;
+  height: 15rem;
+}
+
+#temperature {
+  font-size: 2rem;
+  color: #fafafa;
+  font-weight: bold;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#unit-toggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.8rem;
+  color: #fafafa;
+  font-weight: bold;
+  user-select: none;
+  gap: 0.5rem;
+}
+
+#description {
+  font-size: 1.5rem;
+  color: #fafafa;
+  text-transform: capitalize;
+  text-align: center;
 }
