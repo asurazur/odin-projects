@@ -1,0 +1,1 @@
+import"./styles/styles.css";import{setupAppListeners,updateView}from"./js/displayUI";setupAppListeners(),updateView();
