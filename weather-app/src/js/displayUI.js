@@ -13,6 +13,9 @@ const searchField = document.querySelector("#search-location");
 const unitCheckbox = document.querySelector("#unit-checkbox");
 const unitLabel = document.querySelector("#unit-label");
 
+// Loader
+const loader = document.querySelector(".loader");
+
 // Weather Display DOM References
 const conditionContainer = document.querySelector("#condition");
 const locationDisplay = document.querySelector("#location-name");
@@ -28,7 +31,9 @@ export function setupAppListeners() {
 }
 
 export async function updateView() {
+  displayLoader(true);
   const paths = await getWeather(location);
+  displayLoader(false);
   // Display Error Message
   if (paths.error) {
     locationDisplay.textContent = "Location Not Found";
@@ -108,4 +113,16 @@ function displayTemperature(temperature) {
     span.textContent += "°C";
   }
   temperatureDisplay.appendChild(span);
+}
+
+function displayLoader(show) {
+  if (show) {
+    locationDisplay.textContent = "Loading...";
+    temperatureDisplay.textContent = "--";
+    conditionContainer.innerHTML = "";
+    descriptionDisplay.textContent = "";
+    loader.style.display = "block";
+  } else {
+    loader.style.display = "none";
+  }
 }
