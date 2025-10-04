@@ -1,27 +1,33 @@
 const API = "YU9CVBRBHANX2GM8RH2U2MHV6";
 const URL =
   "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline";
-let location = "Legazpi";
 let unitGroup = "metric";
 
-function withErrorHandling(fn) {
-  return async function (...args) {
-    try {
-      return await fn(...args);
-    } catch (err) {
-      console.error("Error:", err.message);
-      return null; // or throw err, depending on what you want
-    }
-  };
-}
-
 async function getWeatherFunc(location) {
-  const res = await fetch(
-    `${URL}/${location}?unitGroup=${unitGroup}&key=${API}`
-  );
-  const data = await res.json();
-  return await data;
+  try {
+    const res = await fetch(
+      `${URL}/${location}?unitGroup=${unitGroup}&key=${API}`
+    );
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    return undefined;
+  }
 }
 
-export const getWeather = withErrorHandling(getWeatherFunc);
-// getWeather("Naga, Camarines Sur").then((res) => console.log(res));
+export const getWeather = async function (location) {
+  const jsonData = await getWeatherFunc(location);
+  if (jsonData === undefined) {
+    const paths = { error: true };
+    return paths;
+  }
+  const conditions = jsonData.currentConditions;
+  const paths = {
+    location: jsonData.resolvedAddress,
+    temperature: conditions.temp,
+    icon: conditions.icon,
+    description: jsonData.days[0].description,
+    error: false,
+  };
+  return paths;
+};
