@@ -60,6 +60,24 @@ export class LinkedList {
   }
 
   /**
+   * removes the last element from the list
+   */
+  pop() {
+    // If size is zero
+    if (this.size === 0) {
+      return;
+    } else if (this.size === 1) {
+      this.head = null;
+      this.tail = null;
+      this.size = 0;
+    } else {
+      this.at(this.size - 2).next = null;
+      this.tail = this.at(this.size - 2);
+      this.size--;
+    }
+  }
+
+  /**
    *
    * @returns {string} - represents your LinkedList objects as strings,
    * so you can print them out and preview them in the console. The
