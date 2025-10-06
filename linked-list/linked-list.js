@@ -44,4 +44,18 @@ export class LinkedList {
     }
     this.size++;
   }
+
+  /**
+   * returns the node at the given index
+   * @param {*} index - index of the node
+   * @returns
+   */
+  at(index) {
+    if (index >= this.size || index < 0) return null;
+    let iterator = this.head;
+    for (let i = 0; i != index; ++i) {
+      iterator = iterator.next;
+    }
+    return iterator;
+  }
 }
