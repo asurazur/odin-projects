@@ -110,6 +110,35 @@ export class LinkedList {
   }
 
   /**
+   * inserts a new node with the provided value at the given index.
+   * @param {*} value
+   * @param {*} index
+   */
+  insertAt(value, index) {
+    // Index must be within valid range
+    if (index >= this.size || index < 0) return;
+    if (index === 0) {
+      this.prepend(value);
+      this.size++;
+      return;
+    }
+    let prev = this.head;
+    let curr = this.head.next;
+    for (let i = 1; curr !== null; ++i) {
+      if (i === index) {
+        const newNode = new Node(value);
+        prev.next = newNode;
+        newNode.next = curr;
+        this.size++;
+        return;
+      } else {
+        prev = curr;
+        curr = curr.next;
+      }
+    }
+  }
+
+  /**
    *
    * @returns {string} - represents your LinkedList objects as strings,
    * so you can print them out and preview them in the console. The
