@@ -27,4 +27,21 @@ export class LinkedList {
     }
     this.size++;
   }
+
+  /**
+   * Adds a new node containing value to the start of the list
+   * @param {string} value - The data of the node
+   */
+  prepend(value) {
+    const newNode = new Node(value);
+    if (this.size === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      const temp = this.head;
+      this.head = newNode;
+      this.head.next = temp;
+    }
+    this.size++;
+  }
 }
