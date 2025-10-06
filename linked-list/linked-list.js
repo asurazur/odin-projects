@@ -58,4 +58,21 @@ export class LinkedList {
     }
     return iterator;
   }
+
+  /**
+   *
+   * @returns {string} - represents your LinkedList objects as strings,
+   * so you can print them out and preview them in the console. The
+   * format: ( value ) -> ( value ) -> ( value ) -> null
+   */
+  toString() {
+    let iterator = this.head;
+    let result = "";
+    while (iterator !== null) {
+      result += `( ${iterator.value} ) -> `;
+      iterator = iterator.next;
+      if (iterator === null) result += `null`;
+    }
+    return result;
+  }
 }
