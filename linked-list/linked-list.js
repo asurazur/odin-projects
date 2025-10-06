@@ -78,6 +78,22 @@ export class LinkedList {
   }
 
   /**
+   * returns true if the passed in value is in the list and otherwise returns false.
+   * @param {string} value
+   * @returns {boolean}
+   */
+  contains(value) {
+    let iterator = this.head;
+    while (iterator !== null) {
+      if (iterator.value === value) {
+        return true;
+      }
+      iterator = iterator.next;
+    }
+    return false;
+  }
+
+  /**
    *
    * @returns {string} - represents your LinkedList objects as strings,
    * so you can print them out and preview them in the console. The
