@@ -94,6 +94,22 @@ export class LinkedList {
   }
 
   /**
+   * returns the index of the node containing value, or null if not found.
+   * @param {string} value
+   * @returns {number}
+   */
+  find(value) {
+    let iterator = this.head;
+    for (let i = 0; iterator !== null; ++i) {
+      if (iterator.value === value) {
+        return i;
+      }
+      iterator = iterator.next;
+    }
+    return null;
+  }
+
+  /**
    *
    * @returns {string} - represents your LinkedList objects as strings,
    * so you can print them out and preview them in the console. The
