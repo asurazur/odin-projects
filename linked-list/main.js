@@ -10,3 +10,8 @@ list.append("snake");
 list.append("turtle");
 
 console.log(list.toString());
+
+const body = document.querySelector("body");
+const listElement = document.createElement("p");
+listElement.textContent = `Linked List: ${list.toString()}`;
+body.appendChild(listElement);
