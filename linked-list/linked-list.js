@@ -138,6 +138,28 @@ export class LinkedList {
     }
   }
 
+  removeAt(index) {
+    if (index >= this.size || index < 0) return;
+    if (index === 0) {
+      this.head = this.head.next;
+      this.size--;
+      return;
+    }
+    let prev = this.head;
+    let curr = this.head.next;
+    for (let i = 1; curr !== null; ++i) {
+      if (i === index) {
+        prev.next = curr.next;
+        if (i === this.size - 1) this.tail = prev;
+        this.size--;
+        return;
+      } else {
+        prev = curr;
+        curr = curr.next;
+      }
+    }
+  }
+
   /**
    *
    * @returns {string} - represents your LinkedList objects as strings,
