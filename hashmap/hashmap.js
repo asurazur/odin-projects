@@ -58,7 +58,9 @@ export class HashMap {
 
   clear() {
     this.capacity = 16;
-    this.bucket = new Array(capacity).fill(null).map(() => new LinkedList());
+    this.bucket = new Array(this.capacity)
+      .fill(null)
+      .map(() => new LinkedList());
   }
 
   keys() {
