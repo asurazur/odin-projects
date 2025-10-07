@@ -156,7 +156,7 @@ export class Tree {
     callback(node);
   }
 
-  height(value) {
+  depth(value) {
     let iterator = this.root;
     let counter = 0;
     while (iterator !== null) {
