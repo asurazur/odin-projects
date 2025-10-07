@@ -26,4 +26,11 @@ class HashMap {
     this.bucket[index].append(key);
     this.bucket.tail.data = value;
   }
+
+  get(key) {
+    const index = this.hash(key);
+    const node = this.bucket[index].getNode(key);
+    if (node === null) return node;
+    return node.data;
+  }
 }
