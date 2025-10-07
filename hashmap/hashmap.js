@@ -47,6 +47,10 @@ class HashMap {
     return true;
   }
 
+  length() {
+    return this.bucket.reduce((acc, curr) => acc + curr.size(), 0);
+  }
+
   values() {
     let result = [];
     for (const list of this.bucket) {
