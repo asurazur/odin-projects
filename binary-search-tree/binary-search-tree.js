@@ -182,6 +182,15 @@ export class Tree {
     return 1 + Math.max(leftHeight, rightHeight);
   }
 
+  isBalanced(node = this.root) {
+    // Calculate Height of Left and Right Sub tree
+    if (node === null) return true;
+    const leftHeight = this.#getHeight(node.left);
+    const rightHeight = this.#getHeight(node.right);
+    if (Math.abs(leftHeight - rightHeight) > 1) return false;
+    return this.isBalanced(node.left) && this.isBalanced(node.right);
+  }
+
   prettyPrint = (node = this.root, prefix = "", isLeft = true) => {
     if (node === null) {
       return;
