@@ -51,6 +51,11 @@ class HashMap {
     return this.bucket.reduce((acc, curr) => acc + curr.size(), 0);
   }
 
+  clear() {
+    this.capacity = 16;
+    this.bucket = new Array(capacity).fill(null).map(() => new LinkedList());
+  }
+
   values() {
     let result = [];
     for (const list of this.bucket) {
