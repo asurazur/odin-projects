@@ -191,6 +191,14 @@ export class Tree {
     return this.isBalanced(node.left) && this.isBalanced(node.right);
   }
 
+  rebalance() {
+    if (this.isBalanced()) return;
+    let values = [];
+    this.inOrderForEach((node) => values.push(node.data));
+    this.root = this.#_buildTree(values);
+    return values;
+  }
+
   prettyPrint = (node = this.root, prefix = "", isLeft = true) => {
     if (node === null) {
       return;
