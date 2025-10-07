@@ -92,6 +92,20 @@ export class Tree {
     }
   }
 
+  find(value) {
+    let iterator = this.root;
+    while (iterator !== null) {
+      if (value === iterator.data) {
+        return iterator;
+      } else if (value < iterator.data) {
+        iterator = iterator.left;
+      } else {
+        iterator = iterator.right;
+      }
+    }
+    return null;
+  }
+
   prettyPrint = (node = this.root, prefix = "", isLeft = true) => {
     if (node === null) {
       return;
