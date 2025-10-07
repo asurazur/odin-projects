@@ -59,7 +59,7 @@ export class HashMap {
   keys() {
     let result = [];
     for (const list of this.bucket) {
-      const iterator = list.head;
+      let iterator = list.head;
       while (iterator !== null) {
         result.push(iterator.value);
         iterator = iterator.next;
@@ -71,7 +71,7 @@ export class HashMap {
   values() {
     let result = [];
     for (const list of this.bucket) {
-      const iterator = list.head;
+      let iterator = list.head;
       while (iterator !== null) {
         result.push(iterator.data);
         iterator = iterator.next;
@@ -83,7 +83,7 @@ export class HashMap {
   entries() {
     let result = [];
     for (const list of this.bucket) {
-      const iterator = list.head;
+      let iterator = list.head;
       while (iterator !== null) {
         result.push([iterator.value, iterator.data]);
         iterator = iterator.next;
