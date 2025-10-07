@@ -48,7 +48,7 @@ export class HashMap {
   }
 
   length() {
-    return this.bucket.reduce((acc, curr) => acc + curr.size(), 0);
+    return this.bucket.reduce((acc, curr) => acc + curr.size, 0);
   }
 
   clear() {
