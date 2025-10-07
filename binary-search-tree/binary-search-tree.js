@@ -107,9 +107,19 @@ export class Tree {
   }
 
   levelOrderForEach(callback) {
-    let curr = this.root;
-    let queue = [];
-    while (queue) {}
+    if (this.root === null) return;
+    let queue = new Queue();
+    queue.enqueue(this.root);
+    while (!queue.isEmpty()) {
+      let node = queue.dequeue();
+      callback(node);
+      if (node.left !== null) {
+        queue.enqueue(node.left);
+      }
+      if (node.right !== null) {
+        queue.enqueue(node.right);
+      }
+    }
   }
 
   prettyPrint = (node = this.root, prefix = "", isLeft = true) => {
