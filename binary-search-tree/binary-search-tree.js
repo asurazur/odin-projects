@@ -106,7 +106,17 @@ export class Tree {
     return null;
   }
 
+  #checkIsCallback(callback) {
+    if (callback == null) {
+      throw new Error("callback Function Required");
+    }
+    if (typeof callback !== "function") {
+      throw new Error("Argument is not a callback function");
+    }
+  }
+
   levelOrderForEach(callback) {
+    this.#checkIsCallback(callback);
     if (this.root === null) return;
     let queue = new Queue();
     queue.enqueue(this.root);
@@ -121,6 +131,16 @@ export class Tree {
       }
     }
   }
+
+  preOrderForEach(callback, node = this.root) {
+    this.#checkIsCallback(callback);
+    if (node === null) return;
+    callback(callback);
+    this.preOrderForEach(callback, node.left);
+    this.preOrderForEach(callback, node.right);
+  }
+  inOrderForEach(callback) {}
+  postOrderForEach(callback) {}
 
   prettyPrint = (node = this.root, prefix = "", isLeft = true) => {
     if (node === null) {
