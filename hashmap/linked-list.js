@@ -110,6 +110,22 @@ export class LinkedList {
   }
 
   /**
+   * returns the node containing value, or null if not found.
+   * @param {string} value
+   * @returns {Node}
+   */
+  getNode(value) {
+    let iterator = this.head;
+    for (let i = 0; iterator !== null; ++i) {
+      if (iterator.value === value) {
+        return iterator;
+      }
+      iterator = iterator.next;
+    }
+    return null;
+  }
+
+  /**
    * inserts a new node with the provided value at the given index.
    * @param {*} value
    * @param {*} index
