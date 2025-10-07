@@ -33,4 +33,9 @@ class HashMap {
     if (node === null) return node;
     return node.data;
   }
+
+  has(key) {
+    const index = this.hash(key);
+    return this.bucket[index].contains(key);
+  }
 }
