@@ -46,4 +46,27 @@ class HashMap {
     this.bucket[index].removeAt(bucketPos);
     return true;
   }
+
+  values() {
+    let result = [];
+    for (const list of this.bucket) {
+      const iterator = list.head;
+      while (iterator !== null) {
+        result.append(iterator.data);
+        iterator = iterator.next;
+      }
+    }
+    return result;
+  }
+
+  entries() {
+    let result = [];
+    for (const list of this.bucket) {
+      const iterator = list.head;
+      while (iterator !== null) {
+        result.append([iterator.value, iterator.data]);
+        iterator = iterator.next;
+      }
+    }
+  }
 }
