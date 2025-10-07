@@ -168,6 +168,20 @@ export class Tree {
     return null;
   }
 
+  height(value) {
+    // find value
+    const node = this.find(value);
+    if (node === null) return null;
+    return this.#getHeight(node);
+  }
+
+  #getHeight(node) {
+    if (node === null) return null;
+    const leftHeight = this.#getHeight(node.left);
+    const rightHeight = this.#getHeight(node.right);
+    return 1 + Math.max(leftHeight, rightHeight);
+  }
+
   prettyPrint = (node = this.root, prefix = "", isLeft = true) => {
     if (node === null) {
       return;
