@@ -7,7 +7,7 @@ export class HashMap {
     this.bucket = new Array(capacity).fill(null).map(() => new LinkedList());
   }
 
-  hash(key) {
+  _hash(key) {
     let hashCode = 0;
     const primeNumber = 31;
     for (let i = 0; i < key.length; i++) {
@@ -18,29 +18,30 @@ export class HashMap {
   }
 
   set(key, value) {
-    const index = this.hash(key);
+    const index = this._hash(key);
     const node = this.bucket[index].getNode(key);
     if (node !== null) {
       node.data = value;
+      return;
     }
     this.bucket[index].append(key);
     this.bucket[index].tail.data = value;
   }
 
   get(key) {
-    const index = this.hash(key);
+    const index = this._hash(key);
     const node = this.bucket[index].getNode(key);
     if (node === null) return node;
     return node.data;
   }
 
   has(key) {
-    const index = this.hash(key);
+    const index = this._hash(key);
     return this.bucket[index].contains(key);
   }
 
   remove(key) {
-    const index = this.hash(key);
+    const index = this._hash(key);
     const bucketPos = this.bucket[index].find(key);
     if (bucketPos === null) return false;
     this.bucket[index].removeAt(bucketPos);
