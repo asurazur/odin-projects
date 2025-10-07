@@ -38,4 +38,12 @@ class HashMap {
     const index = this.hash(key);
     return this.bucket[index].contains(key);
   }
+
+  remove(key) {
+    const index = this.hash(key);
+    const bucketPos = this.bucket[index].find(key);
+    if (bucketPos === null) return false;
+    this.bucket[index].removeAt(bucketPos);
+    return true;
+  }
 }
