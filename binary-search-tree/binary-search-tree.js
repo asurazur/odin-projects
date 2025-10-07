@@ -135,7 +135,7 @@ export class Tree {
   preOrderForEach(callback, node = this.root) {
     this.#checkIsCallback(callback);
     if (node === null) return;
-    callback(callback);
+    callback(node);
     this.preOrderForEach(callback, node.left);
     this.preOrderForEach(callback, node.right);
   }
@@ -144,7 +144,7 @@ export class Tree {
     this.#checkIsCallback(callback);
     if (node === null) return;
     this.inOrderForEach(callback, node.left);
-    callback(callback);
+    callback(node);
     this.inOrderForEach(callback, node.right);
   }
 
@@ -153,7 +153,7 @@ export class Tree {
     if (node === null) return;
     this.postOrderForEach(callback, node.left);
     this.postOrderForEach(callback, node.right);
-    callback(callback);
+    callback(node);
   }
 
   prettyPrint = (node = this.root, prefix = "", isLeft = true) => {
