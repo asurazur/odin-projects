@@ -26,6 +26,10 @@ export class HashMap {
     }
     this.bucket[index].append(key);
     this.bucket[index].tail.data = value;
+
+    // Double the size
+    const currentLoad = this.length() / this.capacity;
+    if (currentLoad >= this.loadFactor) this._resize();
   }
 
   get(key) {
@@ -91,5 +95,20 @@ export class HashMap {
       }
     }
     return result;
+  }
+
+  _resize() {
+    const oldBucket = this.bucket;
+    this.capacity = this.capacity * 2;
+    this.bucket = new Array(this.capacity)
+      .fill(null)
+      .map(() => new LinkedList());
+    for (const list of oldBucket) {
+      let iterator = list.head;
+      while (iterator !== null) {
+        this.set(iterator.value, iterator.data);
+        iterator = iterator.next;
+      }
+    }
   }
 }
