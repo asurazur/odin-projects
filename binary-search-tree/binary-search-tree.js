@@ -24,6 +24,27 @@ export class Tree {
     return rootNode;
   }
 
+  insert(value) {
+    let iterator = this.root;
+    if (iterator.data === value) return;
+    const node = new Node(value);
+    while (iterator !== null) {
+      if (value < iterator.data) {
+        if (iterator.left === null) {
+          iterator.left = node;
+          return;
+        }
+        iterator = iterator.left;
+      } else {
+        if (iterator.right === null) {
+          iterator.right = node;
+          return;
+        }
+        iterator = iterator.right;
+      }
+    }
+  }
+
   prettyPrint = (node = this.root, prefix = "", isLeft = true) => {
     if (node === null) {
       return;
