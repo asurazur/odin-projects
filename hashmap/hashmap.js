@@ -24,7 +24,7 @@ export class HashMap {
       node.data = value;
     }
     this.bucket[index].append(key);
-    this.bucket.tail.data = value;
+    this.bucket[index].tail.data = value;
   }
 
   get(key) {
@@ -89,5 +89,6 @@ export class HashMap {
         iterator = iterator.next;
       }
     }
+    return result;
   }
 }
