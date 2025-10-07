@@ -56,6 +56,18 @@ class HashMap {
     this.bucket = new Array(capacity).fill(null).map(() => new LinkedList());
   }
 
+  keys() {
+    let result = [];
+    for (const list of this.bucket) {
+      const iterator = list.head;
+      while (iterator !== null) {
+        result.append(iterator.value);
+        iterator = iterator.next;
+      }
+    }
+    return result;
+  }
+
   values() {
     let result = [];
     for (const list of this.bucket) {
