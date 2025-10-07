@@ -19,10 +19,8 @@ export class Tree {
     if (array.length === 0) return null;
     const mid = Math.floor(array.length / 2);
     const rootNode = new Node(array[mid]);
-    const leftNode = this.#_buildTree(array.toSpliced(mid, array.length));
-    const rightNode = this.#_buildTree(array.toSpliced(0, mid + 1));
-    rootNode.left = leftNode;
-    rootNode.right = rightNode;
+    rootNode.left = this.#_buildTree(array.toSpliced(mid, array.length));
+    rootNode.right = this.#_buildTree(array.toSpliced(0, mid + 1));
     return rootNode;
   }
 }
