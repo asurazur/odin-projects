@@ -45,6 +45,53 @@ export class Tree {
     }
   }
 
+  deleteItem(value, node = this.root, parent = null) {
+    if (node === null) return;
+
+    if (value < node.data) {
+      this.deleteItem(value, node.left, node);
+    } else if (value > node.data) {
+      this.deleteItem(value, node.right, node);
+    } else {
+      // Node found
+      if (node.left === null && node.right === null) {
+        // Leaf node
+        if (parent === null) {
+          this.root = null;
+        } else if (parent.left === node) {
+          parent.left = null;
+        } else {
+          parent.right = null;
+        }
+      } else if (node.left === null || node.right === null) {
+        // One child
+        const child = node.left || node.right;
+        if (parent === null) {
+          this.root = child;
+        } else if (parent.left === node) {
+          parent.left = child;
+        } else {
+          parent.right = child;
+        }
+      } else {
+        // Two children: find inorder successor
+        let successorParent = node;
+        let successor = node.right;
+        while (successor.left !== null) {
+          successorParent = successor;
+          successor = successor.left;
+        }
+        node.data = successor.data;
+        // Delete successor
+        if (successorParent.left === successor) {
+          successorParent.left = successor.right;
+        } else {
+          successorParent.right = successor.right;
+        }
+      }
+    }
+  }
+
   prettyPrint = (node = this.root, prefix = "", isLeft = true) => {
     if (node === null) {
       return;
