@@ -156,6 +156,18 @@ export class Tree {
     callback(node);
   }
 
+  height(value) {
+    let iterator = this.root;
+    let counter = 0;
+    while (iterator !== null) {
+      if (iterator.data === value) return counter;
+      if (value < iterator.data) iterator = iterator.left;
+      else iterator = iterator.right;
+      counter++;
+    }
+    return null;
+  }
+
   prettyPrint = (node = this.root, prefix = "", isLeft = true) => {
     if (node === null) {
       return;
