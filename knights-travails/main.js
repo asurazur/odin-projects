@@ -68,7 +68,12 @@ function knightMoves(position, destination) {
   }
 }
 
-let current = [0, -1];
-let destination = [7, 7];
+let current = [3, 3];
+let destination = [4, 3];
 let path = knightMoves(current, destination);
+console.log(
+  `You made it in ${path.length} ${
+    path.length === 1 ? "move" : "moves"
+  }! Here's your path:`
+);
 console.log(path);
