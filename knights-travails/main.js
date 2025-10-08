@@ -27,7 +27,7 @@ function validMoves(position) {
     value[1] = value[1] + position[1];
   });
   moves = moves.filter((value) => {
-    return value[0] <= 7 && value[0] >= 0 && value[1] <= 7 && value[1] >= 0;
+    return isValid(value);
   });
   return moves;
 }
