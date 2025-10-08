@@ -47,8 +47,8 @@ function getPath(current, parent, path = []) {
 }
 
 function knightMoves(position, destination) {
-  if (!(isValid(position) || isValid(destination)))
-    throw new Error("The coordinates are out of bounds");
+  if (!(isValid(position) && isValid(destination)))
+    throw new Error("The coordinates are invalid");
   const queue = new Queue();
   let visited = [];
   const parent = {};
@@ -70,6 +70,5 @@ function knightMoves(position, destination) {
 
 let current = [0, -1];
 let destination = [7, 7];
-// let path = knightMoves(current, destination);
-// console.log(path);
-isValid(current);
+let path = knightMoves(current, destination);
+console.log(path);
