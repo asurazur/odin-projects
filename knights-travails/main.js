@@ -12,6 +12,14 @@ function getDelta() {
   ];
 }
 
+function isValid(pos) {
+  if (pos.length !== 2) return false;
+  pos.forEach((pos) => {
+    if (pos > 7 || pos < 0) return false;
+  });
+  return true;
+}
+
 function validMoves(position) {
   let moves = getDelta();
   moves.map((value) => {
