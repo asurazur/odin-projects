@@ -32,6 +32,32 @@ function isVisited(target, visited) {
   return visited.some((row) => isMatch(row, target));
 }
 
+function getPath(current, parent, path = []) {
+  if ((current ?? null) === null) return path.reverse();
+  path.push(current);
+  return getPath(parent[current], parent, path);
+}
+
+function knightMoves(position, destination) {
+  const queue = new Queue();
+  let visited = [];
+  const parent = {};
+  queue.enqueue(position);
+  while (!queue.isEmpty()) {
+    let current = queue.dequeue();
+    visited.push(current);
+    if (isMatch(current, destination)) {
+      return getPath(current, parent);
+    }
+    let moves = validMoves(current);
+    moves = moves.filter((move) => !isVisited(move, visited));
+    moves.forEach((move) => {
+      queue.enqueue(move);
+      parent[move] = current;
+    });
+  }
+}
+
 let current = [0, 0];
 let destination = [7, 7];
 let path = knightMoves(current, destination);
