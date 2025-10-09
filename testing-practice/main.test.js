@@ -7,10 +7,18 @@ import {
 } from "./main.js";
 
 describe("capitalize", () => {
-  test("returns a string with the first character capitalized", () => {});
-  test("returns the same string if first character is already capitalized", () => {});
-  test("handles empty strings correctly", () => {});
-  test("does not alter the rest of the string", () => {});
+  test("returns a string with the first character capitalized", () => {
+    expect(capitalize("hello")).toBe("Hello");
+  });
+  test("returns the same string if first character is already capitalized", () => {
+    expect(capitalize("Capitalized Already")).toBe("Capitalized Already");
+  });
+  test("handles empty strings correctly", () => {
+    expect(capitalize("")).toBe("");
+  });
+  test("does not alter the rest of the string", () => {
+    expect(capitalize("heLLo")).toBe("HeLLo");
+  });
 });
 
 describe("reverseString", () => {
