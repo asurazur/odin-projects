@@ -21,7 +21,32 @@ const calculator = {
   },
 };
 
-function caesarCipher(str, shift) {}
+function isAlpha(char) {
+  return /^[a-zA-Z]+$/.test(char);
+}
+
+function isLower(char) {
+  const charCode = char.charCodeAt();
+  return charCode - 65 > 25;
+}
+
+function shiftCharacter(char, shift) {
+  shift = ((shift % 26) + 26) % 26;
+  const delta = isLower(char) ? 97 : 65;
+  const charCode = char.charCodeAt();
+  const index = charCode - delta;
+  const shiftedCharCode = (index + shift) % 26;
+  return String.fromCharCode(shiftedCharCode + delta);
+}
+
+function caesarCipher(str, shift) {
+  let result = "";
+  for (const char of str) {
+    if (isAlpha(char)) result += shiftCharacter(char, shift);
+    else result += char;
+  }
+  return result;
+}
 
 function analyzeArray(array) {}
 
