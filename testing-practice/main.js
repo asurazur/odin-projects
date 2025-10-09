@@ -48,6 +48,13 @@ function caesarCipher(str, shift) {
   return result;
 }
 
-function analyzeArray(array) {}
+function analyzeArray(array) {
+  return {
+    min: Math.min(...array),
+    max: Math.max(...array),
+    length: array.length,
+    average: array.reduce((acc, curr) => acc + curr, 0) / array.length,
+  };
+}
 
 export { capitalize, reverseString, calculator, caesarCipher, analyzeArray };
