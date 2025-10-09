@@ -81,12 +81,24 @@ describe("calculator", () => {
 
 // caesarCipher.test.js
 describe("caesarCipher", () => {
-  test("shifts letters correctly by given factor", () => {});
-  test("wraps from z to a correctly", () => {});
-  test("preserves uppercase and lowercase letters", () => {});
-  test("keeps punctuation and spaces unchanged", () => {});
-  test("handles large shift values greater than 26", () => {});
-  test("handles negative shift values correctly", () => {});
+  test("shifts letters correctly by given factor", () => {
+    expect(caesarCipher("abc", 1)).toBe("bcd");
+  });
+  test("wraps from z to a correctly", () => {
+    expect(caesarCipher("xyz", 3)).toBe("abc");
+  });
+  test("preserves uppercase and lowercase letters", () => {
+    expect(caesarCipher("HeLLo", 3)).toBe("KhOOr");
+  });
+  test("keeps punctuation and spaces unchanged", () => {
+    expect(caesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!");
+  });
+  test("handles large shift values greater than 26", () => {
+    expect(caesarCipher("overflow", 27)).toBe("pwfsgmpx");
+  });
+  test("handles negative shift values correctly", () => {
+    expect(caesarCipher("abc", -3)).toBe("xyz");
+  });
 });
 
 // analyzeArray.test.js
