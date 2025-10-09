@@ -103,8 +103,14 @@ describe("caesarCipher", () => {
 
 // analyzeArray.test.js
 describe("analyzeArray", () => {
-  test("returns correct average, min, max, and length for a given array", () => {});
-  test("handles arrays with negative numbers", () => {});
-  test("handles arrays with a single element", () => {});
-  test("returns undefined or error for empty array input", () => {});
+  test("returns correct average, min, max, and length for a given array", () => {
+    const array = [1, 8, 3, 4, 2, 6];
+    const result = {
+      average: 4,
+      min: 1,
+      max: 8,
+      length: 6,
+    };
+    expect(analyzeArray(array)).toEqual(result);
+  });
 });
