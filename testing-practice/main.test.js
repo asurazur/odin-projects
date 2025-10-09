@@ -37,24 +37,45 @@ describe("reverseString", () => {
 });
 
 describe("calculator", () => {
+  const add = calculator.add;
+  const subtract = calculator.subtract;
+  const multiply = calculator.multiply;
+  const divide = calculator.divide;
+
   describe("add", () => {
-    test("adds two positive numbers", () => {});
-    test("adds a positive and a negative number", () => {});
+    test("adds two positive numbers", () => {
+      expect(add(1, 1)).toBe(2);
+    });
+    test("adds a positive and a negative number", () => {
+      expect(add(2, -5)).toBe(-3);
+    });
   });
 
   describe("subtract", () => {
-    test("subtracts two numbers correctly", () => {});
-    test("subtracts resulting in a negative number", () => {});
+    test("subtracts two numbers correctly", () => {
+      expect(subtract(10, 5)).toBe(5);
+    });
+    test("subtracts resulting in a negative number", () => {
+      expect(subtract(9, 10)).toBe(-1);
+    });
   });
 
   describe("divide", () => {
-    test("divides two positive numbers", () => {});
-    test("returns Infinity when dividing by zero", () => {});
+    test("divides two positive numbers", () => {
+      expect(divide(10, 2)).toBe(5);
+    });
+    test("returns Infinity when dividing by zero", () => {
+      expect(divide(1, 0)).toBe(Infinity);
+    });
   });
 
   describe("multiply", () => {
-    test("multiplies two positive numbers", () => {});
-    test("multiplies with zero", () => {});
+    test("multiplies two positive numbers", () => {
+      expect(multiply(2, 3)).toBe(6);
+    });
+    test("multiplies with zero", () => {
+      expect(multiply(10, 0)).toBe(0);
+    });
   });
 });
 
