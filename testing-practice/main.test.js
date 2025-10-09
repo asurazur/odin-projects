@@ -23,16 +23,16 @@ describe("capitalize", () => {
 
 describe("reverseString", () => {
   test("reverses a simple string", () => {
-    expect(reverseString("Word").toBe("droW"));
+    expect(reverseString("Word")).toBe("droW");
   });
   test("reverses a string with spaces", () => {
-    expect(reverseString("Hi There User").toBe("resU erehT iH"));
+    expect(reverseString("Hi There User")).toBe("resU erehT iH");
   });
   test("reverses a string with punctuation", () => {
-    expect(reverseString("Hello, World!").toBe("!dlroW ,olleH"));
+    expect(reverseString("Hello, World!")).toBe("!dlroW ,olleH");
   });
   test("returns an empty string when given an empty string", () => {
-    expect(reverseString("").toBe(""));
+    expect(reverseString("")).toBe("");
   });
 });
 
