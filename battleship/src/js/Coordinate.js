@@ -34,6 +34,10 @@ class Coordinate {
   getCoordinate() {
     return [this.#x, this.#y];
   }
+
+  toString() {
+    return `[${this.#x}, ${this.#y}]`;
+  }
 }
 
 export { Coordinate };
