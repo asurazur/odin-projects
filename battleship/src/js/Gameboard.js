@@ -114,7 +114,9 @@ class Gameboard {
     return { status: true, note: "shipPlaced" };
   }
 
+  // allShipSunk(): boolean -> determine if all ships are sunked
   allShipSunk() {
-    // allShipSunk(): boolean -> determine if all ships are sunked
+    if (this.ships.length === 0) return false;
+    return this.ships.every((ship) => ship.isSunk());
   }
 }
