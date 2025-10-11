@@ -31,14 +31,14 @@ class Gameboard {
       : false;
   }
 
-  #checkOverlap(ship, coordinate, orientation) {
+  #checkOverlap(ship, coordinate, direction) {
     let [row, column] = coordinate.getCoordinate();
-    for (let i = 0; i < ship.length; ++i) {
-      if (orientation === "horizontal") {
+    for (let i = 0; i < ship.getLength(); ++i) {
+      if (direction === "horizontal") {
         if (this.board[row][column + i] !== null) {
           return true;
         }
-      } else if (orientation === "vertical") {
+      } else if (direction === "vertical") {
         if (this.board[row + i][column] !== null) {
           return true;
         }
@@ -47,16 +47,15 @@ class Gameboard {
     return false;
   }
 
-  #populateCoordinates(ship, coordinate, orientation) {
+  #populateCoordinates(ship, coordinate, direction) {
     let [row, column] = coordinate.getCoordinate();
-    for (let i = 0; i < ship.length; ++i) {
-      if (orientation === "horizontal") {
+    for (let i = 0; i < ship.getLength(); ++i) {
+      if (direction === "horizontal") {
         this.board[row][column + i] = ship;
-      } else if (orientation === "vertical") {
+      } else if (direction === "vertical") {
         this.board[row + i][column] = ship;
       }
     }
-    return false;
   }
 
   // recieveAttack(Coordinate): {status: boolean, note: string} -> Determine if a ship is hit or not | already attacked
@@ -70,6 +69,7 @@ class Gameboard {
       return { status: false, note: "alreadyAttacked" };
     }
 
+    const [x, y] = attack.getCoordinate();
     if (this.board[x][y] === null) {
       this.misses.add(stringCoordinate);
       return { status: true, note: "miss" };
@@ -80,10 +80,11 @@ class Gameboard {
     }
   }
 
-  placeShip(ship, coordinate, orientation) {
+  placeShip(ship, coordinate, direction) {
     // Able to Place Ships at Specific Coordinates, No Overlapping or Out of Bounds
-    if (orientation !== "horizontal" || orientation !== "vertical")
+    if (direction !== "horizontal" && direction !== "vertical") {
       return { status: false, note: "invalidOrientation" };
+    }
 
     const [row, column] = coordinate.getCoordinate();
     if (this.#isOutofBounds(coordinate)) {
@@ -91,26 +92,23 @@ class Gameboard {
     }
 
     if (
-      orientation === "horizontal" &&
+      direction === "horizontal" &&
       column + ship.length > Gameboard.BOARD_SIZE
     ) {
       return { status: false, note: "outOfBounds" };
     }
 
-    if (
-      orientation === "vertical" &&
-      row + ship.length > Gameboard.BOARD_SIZE
-    ) {
+    if (direction === "vertical" && row + ship.length > Gameboard.BOARD_SIZE) {
       return { status: false, note: "outOfBounds" };
     }
 
     // Check if the coordinate Overlaps
-    if (this.#checkOverlap(ship, coordinate, orientation))
+    if (this.#checkOverlap(ship, coordinate, direction))
       return { status: false, note: "overlap" };
 
     this.ships.push(ship);
 
-    this.#populateCoordinates(ship, coordinate, orientation);
+    this.#populateCoordinates(ship, coordinate, direction);
     return { status: true, note: "shipPlaced" };
   }
 
