@@ -12,7 +12,7 @@ class Game {
       this.currentPlayer === this.player1 ? this.player2 : this.player1;
 
     // Make Move
-    const { x, y } = this.currentPlayer.makeMove();
+    const { x, y } = this.currentPlayer.makeMove(opponent.getBoard());
     // Recieve Attack
     opponent.getBoard().recieveAttack(new Coordinate(x, y));
     // Check Winner
