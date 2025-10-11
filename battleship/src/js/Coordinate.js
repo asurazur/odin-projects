@@ -18,6 +18,19 @@ class Coordinate {
     return this.#y;
   }
 
+  setX(x) {
+    this.#x = x;
+  }
+
+  setY(y) {
+    this.#y = y;
+  }
+
+  setCoordinate(x, y) {
+    this.setX(x);
+    this.setY(y);
+  }
+
   getCoordinate() {
     return [this.#x, this.#y];
   }
