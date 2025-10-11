@@ -1,4 +1,3 @@
-import { experiments } from "webpack";
 import { Ship } from "./Ship.js";
 
 describe("Constructor", () => {
@@ -15,7 +14,7 @@ describe("When Ship is hit", () => {
   const instance = new Ship(length);
   test("Ship hits must increase when hit", () => {
     instance.hit();
-    expect(instance.hits).toBe(1);
+    expect(instance.getHits()).toBe(1);
   });
 
   test("Ship hits must not exceed it's length", () => {
@@ -23,7 +22,7 @@ describe("When Ship is hit", () => {
     instance.hit();
     instance.hit();
     instance.hit();
-    expect(instance.hits).toBe(length);
+    expect(instance.getHits()).toBe(length);
   });
 });
 
@@ -31,11 +30,13 @@ describe("Check if Ship is sunked", () => {
   const length = 1;
   const instance = new Ship(length);
   test("Ship is not sunked if length is not equal to number of hits", () => {
-    expect(instance.hits).not.toBe(length);
+    expect(instance.getHits()).not.toBe(length);
+    expect(instance.isSunk()).toBe(false);
   });
 
   test("Ship is sunked if length is equal to number of hits", () => {
     instance.hit();
-    expect(instance.hits).toBe(length);
+    expect(instance.getHits()).toBe(length);
+    expect(instance.isSunk()).toBe(true);
   });
 });

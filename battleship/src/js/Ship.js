@@ -22,6 +22,10 @@ class Ship {
     return this.#hits === this.#length;
   }
 
+  getHits() {
+    return this.#hits;
+  }
+
   getLength() {
     return this.#length;
   }
