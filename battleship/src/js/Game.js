@@ -7,23 +7,28 @@ class Game {
     this.currentPlayer = player1;
   }
 
-  takeTurn() {
-    const opponent =
-      this.currentPlayer === this.player1 ? this.player2 : this.player1;
+  getOpponent(player) {
+    return player === this.player1 ? this.player2 : this.player1;
+  }
 
-    // Make Move
-    const { x, y } = this.currentPlayer.makeMove(opponent.getBoard());
-    // Recieve Attack
-    opponent.getBoard().recieveAttack(new Coordinate(x, y));
-    // Check Winner
-    if (this.checkWinner(opponent)) return true;
-    // Switch Turn
+  playMove(coordinate) {
+    const opponent = this.getOpponent(this.currentPlayer);
+    opponent.board.recieveAttack(coordinate);
+    if (this.checkWinner(opponent)) {
+      return true;
+    }
     this.switchTurn();
     return false;
   }
 
-  checkWinner(player) {
-    return player.getBoard().allShipSunk();
+  async performTurn() {
+    const opponent = this.getOpponent(this.currentPlayer);
+    const move = await this.currentPlayer.makeMove(opponent.board);
+    return this.playMove(move);
+  }
+
+  checkWinner(opponent) {
+    return opponent.getBoard().allShipSunk();
   }
 
   getWinner() {
