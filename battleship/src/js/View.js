@@ -33,7 +33,9 @@ class View {
         const field = document.createElement("div");
         field.classList.add("field");
         if (board[row][column] !== null) {
-          field.classList.add("ship");
+          if (board[row][column].isSunk() || !isEnemy) {
+            field.classList.add("ship");
+          }
         }
         const coordinate = new Coordinate(row, column).toString();
         if (misses.has(coordinate)) {
@@ -53,7 +55,9 @@ class View {
     }
   }
 
-  //   Create A Popup Text to show Who's Turn It is
+  updateMessage(message) {
+    this.messageContainer.innerText = message;
+  }
 }
 
 export { View };
