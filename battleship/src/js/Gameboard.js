@@ -11,11 +11,9 @@ class Gameboard {
 
   initializeBoard() {
     // 10 x 10 Boolean Array: Ship | null
-    this.board = [
-      ...new Array(Gameboard.BOARD_SIZE)
-        .fill(null)
-        .map(() => new Array(Gameboard.BOARD_SIZE).fill(null)),
-    ];
+    this.board = Array.from({ length: Gameboard.BOARD_SIZE }, () =>
+      Array(Gameboard.BOARD_SIZE).fill(null)
+    );
     this.misses = new Set();
     this.hits = new Set();
     this.ships = [];
@@ -34,6 +32,14 @@ class Gameboard {
   #checkOverlap(ship, coordinate, direction) {
     let [row, column] = coordinate.getCoordinate();
     for (let i = 0; i < ship.getLength(); ++i) {
+      const r = direction === "vertical" ? row + i : row;
+      const c = direction === "horizontal" ? column + i : column;
+
+      // 🛑 Boundary check to prevent undefined access
+      if (r >= Gameboard.BOARD_SIZE || c >= Gameboard.BOARD_SIZE) {
+        return true; // Treat out-of-bounds as overlap
+      }
+
       if (direction === "horizontal") {
         if (this.board[row][column + i] !== null) {
           return true;
@@ -110,6 +116,36 @@ class Gameboard {
 
     this.#populateCoordinates(ship, coordinate, direction);
     return { status: true, note: "shipPlaced" };
+  }
+
+  randomPlaceShip() {
+    this.initializeBoard();
+    const sizes = [5, 4, 3, 3, 2];
+
+    for (const size of sizes) {
+      let placed = false;
+
+      while (!placed) {
+        const direction = Math.random() < 0.5 ? "horizontal" : "vertical";
+
+        // 🔧 Constrain random starting position
+        const row =
+          direction === "vertical"
+            ? Math.floor(Math.random() * (Gameboard.BOARD_SIZE - size + 1))
+            : Math.floor(Math.random() * Gameboard.BOARD_SIZE);
+
+        const col =
+          direction === "horizontal"
+            ? Math.floor(Math.random() * (Gameboard.BOARD_SIZE - size + 1))
+            : Math.floor(Math.random() * Gameboard.BOARD_SIZE);
+
+        const ship = new Ship(size);
+        const coordinate = new Coordinate(row, col);
+
+        const result = this.placeShip(ship, coordinate, direction);
+        placed = result.status;
+      }
+    }
   }
 
   // allShipSunk(): boolean -> determine if all ships are sunked
