@@ -1,3 +1,4 @@
+import { Coordinate } from "./Coordinate.js";
 import { IMoveStrategy } from "./IMoveStrategy.js";
 
 export class AIMoveStrategy extends IMoveStrategy {
@@ -9,6 +10,6 @@ export class AIMoveStrategy extends IMoveStrategy {
       move = `${x},${y}`;
     } while (board.misses.has(move) || board.hits.has(move));
     const [x, y] = move.split(",").map(Number);
-    return { x, y };
+    return new Coordinate(x, y);
   }
 }

@@ -1,11 +1,14 @@
+import { Coordinate } from "./Coordinate.js";
 import { IMoveStrategy } from "./IMoveStrategy.js";
 
 export class HumanMoveStrategy extends IMoveStrategy {
   constructor(getMoveFn) {
-    this.getMoveFn = getMoveFn;
+    super();
+    this.getMoveFn = getMoveFn ?? null;
   }
 
-  getMove(board) {
-    return this.getMoveFn();
+  async getMove(board) {
+    const move = await this.getMoveFn(board);
+    return new Coordinate(move[0], move[1]);
   }
 }
