@@ -82,6 +82,8 @@ class Gameboard {
     } else {
       this.board[x][y].hit();
       this.hits.add(stringCoordinate);
+      if (this.board[x][y].isSunk())
+        return { status: true, note: "shipSunked" };
       return { status: true, note: "ship" };
     }
   }
@@ -109,8 +111,9 @@ class Gameboard {
     }
 
     // Check if the coordinate Overlaps
-    if (this.#checkOverlap(ship, coordinate, direction))
+    if (this.#checkOverlap(ship, coordinate, direction)) {
       return { status: false, note: "overlap" };
+    }
 
     this.ships.push(ship);
 
@@ -141,7 +144,6 @@ class Gameboard {
 
         const ship = new Ship(size);
         const coordinate = new Coordinate(row, col);
-
         const result = this.placeShip(ship, coordinate, direction);
         placed = result.status;
       }

@@ -13,12 +13,8 @@ class Game {
 
   playMove(coordinate) {
     const opponent = this.getOpponent(this.currentPlayer);
-    opponent.board.recieveAttack(coordinate);
-    if (this.checkWinner(opponent)) {
-      return true;
-    }
-    this.switchTurn();
-    return false;
+    let status = opponent.board.recieveAttack(coordinate);
+    return status;
   }
 
   async performTurn() {
@@ -33,6 +29,10 @@ class Game {
 
   getWinner() {
     return this.player1.getBoard().allShipSunk() ? this.player2 : this.player1;
+  }
+
+  isOver() {
+    return this.player1.board.allShipSunk() || this.player2.board.allShipSunk();
   }
 
   switchTurn() {
