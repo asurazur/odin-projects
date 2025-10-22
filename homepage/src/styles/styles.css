@@ -47,6 +47,45 @@ header {
   height: auto;
 }
 
+main {
+  padding: 0 5rem;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 420px));
+  justify-content: flex-start;
+  gap: 3rem;
+  margin-bottom: 10rem;
+}
+
+.project-card {
+  border: 1px solid black;
+}
+
+.project-preview {
+  background-color: #fafafa;
+  height: 25rem;
+}
+
+.project-card > :not(:first-child) {
+  margin: 2rem;
+}
+
+.project-card > :nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-links > a {
+  margin-left: 1rem;
+}
+
+.project-card h3 {
+  margin: 0;
+}
+
 @media screen and (max-width: 767px) {
   header {
     flex-direction: column;
