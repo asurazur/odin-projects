@@ -54,7 +54,7 @@ main {
 .project-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 420px));
-  justify-content: flex-start;
+  justify-content: center;
   gap: 3rem;
   margin-bottom: 10rem;
 }
@@ -86,11 +86,42 @@ main {
   margin: 0;
 }
 
+footer {
+  background-color: #0891b2;
+  padding: 5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  color: white;
+}
+
+footer a {
+  color: white;
+}
+
+footer img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 @media screen and (max-width: 767px) {
   header {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
     padding: 0;
+  }
+  footer {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, min-content);
+  }
+  footer > .contact {
+    margin: 0 2rem;
+  }
+  footer img {
+    width: 100%;
   }
 }
