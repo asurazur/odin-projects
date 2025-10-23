@@ -20,6 +20,7 @@ This repository contains my solutions and implementations for [**The Odin Projec
 | **Todo App**            | A to-do list app using modules, Webpack, and localStorage.                      | [View Live](https://asurazur.github.io/odin-projects/todo/dist/index.html)            |
 | **Weather App**         | A weather forecast app fetching data from a public API.                         | [View Live](https://asurazur.github.io/odin-projects/weather-app/dist/index.html)     |
 | **Battleship**          | A JavaScript-based implementation of the classic board game.                    | [View Live](https://asurazur.github.io/odin-projects/battleship/dist/index.html)      |
+| **Homepage**            | A responsive homepage design.                                                   | [View Live](https://asurazur.github.io/odin-projects/homepage/dist/index.html)        |
 
 ---
 
