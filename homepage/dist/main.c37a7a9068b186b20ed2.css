@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto", "Noto Sans", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
+}
+
+header {
+  background-color: #0891b2;
+  padding: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.about-container {
+  background-color: #fafafa;
+  align-self: center;
+  padding: 1rem 2rem;
+  max-width: 80rem;
+}
+
+.socials-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.socials-logo svg {
+  width: 5%;
+  min-width: 2.4rem;
+  max-width: 4.8rem;
+  height: auto;
+}
+
+main {
+  padding: 0 5rem;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 420px));
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 10rem;
+}
+
+.project-card {
+  border: 1px solid black;
+}
+
+.project-preview {
+  background-color: #fafafa;
+  height: 25rem;
+}
+
+.project-card > :not(:first-child) {
+  margin: 2rem;
+}
+
+.project-card > :nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-links > a {
+  margin-left: 1rem;
+}
+
+.project-card h3 {
+  margin: 0;
+}
+
+footer {
+  background-color: #0891b2;
+  padding: 5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  color: white;
+}
+
+footer a {
+  color: white;
+}
+
+footer img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0;
+  }
+  footer {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, min-content);
+  }
+  footer > .contact {
+    margin: 0 2rem;
+  }
+  footer img {
+    width: 100%;
+  }
+}
+
+
+/*# sourceMappingURL=main.c37a7a9068b186b20ed2.css.map*/
